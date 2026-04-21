@@ -270,23 +270,25 @@
       100% { transform: translateX(-50%); }
     }
 
-    .about {
+    .about,
+    .gallery {
       position: relative;
       overflow: hidden;
       color: white;
-      padding: 100px 2rem;
-      text-align: center;
       background:
-        linear-gradient(180deg, rgba(6, 10, 16, 0.92) 0%, rgba(10, 15, 24, 0.96) 100%);
+        radial-gradient(circle at top center, rgba(220, 38, 38, 0.08), transparent 30%),
+        linear-gradient(180deg, rgba(8, 12, 18, 0.96) 0%, rgba(10, 15, 24, 0.98) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .about::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top center, rgba(220, 38, 38, 0.12), transparent 38%);
-      pointer-events: none;
+    .about {
+      padding: 100px 2rem 55px;
+      text-align: center;
+    }
+
+    .gallery {
+      padding: 55px 2rem 95px;
     }
 
     .about-copy {
@@ -303,11 +305,6 @@
       color: #e5e7eb;
     }
 
-    .gallery {
-      background: #111827;
-      padding: 90px 2rem;
-    }
-
     .gallery-grid {
       max-width: 1280px;
       margin: 0 auto;
@@ -320,7 +317,7 @@
       margin-bottom: 1rem;
       border-radius: 14px;
       overflow: hidden;
-      background: #0f172a;
+      background: rgba(15, 23, 42, 0.72);
       box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
     }
 
@@ -328,6 +325,43 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .impact-banner {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(10, 15, 24, 0.98) 0%, rgba(14, 20, 31, 0.98) 100%);
+      padding: 2.2rem 0 2.8rem;
+    }
+
+    .impact-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(220, 38, 38, 0.12), transparent 42%);
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    .impact-text {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+      font-size: clamp(2.2rem, 7vw, 5.8rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.14);
+      text-shadow: 0 0 28px rgba(255, 255, 255, 0.06);
+      filter: blur(0.3px);
+      padding: 0 1rem;
+    }
+
+    .impact-text .accent {
+      color: rgba(220, 38, 38, 0.24);
     }
 
     .benefits {
@@ -802,13 +836,34 @@
       .services,
       .pricing-faq,
       .contact {
-        padding: 80px 1.25rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .about {
+        padding-top: 80px;
+        padding-bottom: 40px;
+      }
+
+      .gallery {
+        padding-top: 40px;
+        padding-bottom: 80px;
       }
 
       .section-title,
       .contact h2,
       .faq-box h2 {
         font-size: 2rem;
+      }
+
+      .impact-banner {
+        padding: 1.5rem 0 1.8rem;
+      }
+
+      .impact-text {
+        font-size: clamp(1.9rem, 12vw, 3.8rem);
+        line-height: 1.05;
+        letter-spacing: 0.05em;
       }
 
       .service-item {
@@ -968,6 +1023,12 @@
       <div class="gallery-item">
         <img src="./Photo Apr 09 2026, 9 41 20 PM (10).jpg" alt="Basketball game highlight" loading="lazy">
       </div>
+    </div>
+  </section>
+
+  <section class="impact-banner" aria-label="Motivational statement">
+    <div class="impact-text">
+      SUCCESS, FAILURE, SETBACK? <span class="accent">#WHATSNEXT</span>
     </div>
   </section>
 
