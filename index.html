@@ -283,12 +283,56 @@
     }
 
     .about {
-      padding: 100px 2rem 55px;
+      padding: 100px 2rem 20px;
       text-align: center;
     }
 
     .gallery {
-      padding: 55px 2rem 95px;
+      padding: 20px 2rem 95px;
+    }
+
+    .section-blend-wrap {
+      position: relative;
+      height: 120px;
+      margin-top: -15px;
+      margin-bottom: -15px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(8, 12, 18, 0.00) 0%,
+          rgba(10, 15, 24, 0.52) 20%,
+          rgba(12, 18, 28, 0.82) 50%,
+          rgba(10, 15, 24, 0.52) 80%,
+          rgba(8, 12, 18, 0.00) 100%
+        );
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .section-blend-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -30px 0;
+      background:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 42%),
+        radial-gradient(circle at center, rgba(220, 38, 38, 0.14), transparent 34%);
+      filter: blur(26px);
+      opacity: 0.95;
+    }
+
+    .section-blend-wrap::after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 50%;
+      height: 58px;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.045);
+      filter: blur(38px);
+      border-radius: 999px;
+      opacity: 0.9;
     }
 
     .about-copy {
@@ -842,11 +886,11 @@
 
       .about {
         padding-top: 80px;
-        padding-bottom: 40px;
+        padding-bottom: 10px;
       }
 
       .gallery {
-        padding-top: 40px;
+        padding-top: 10px;
         padding-bottom: 80px;
       }
 
@@ -854,6 +898,12 @@
       .contact h2,
       .faq-box h2 {
         font-size: 2rem;
+      }
+
+      .section-blend-wrap {
+        height: 90px;
+        margin-top: -10px;
+        margin-bottom: -10px;
       }
 
       .impact-banner {
@@ -993,6 +1043,8 @@
       <a href="#contact" class="cta-button">Request Your Free Fitness Assessment</a>
     </div>
   </section>
+
+  <div class="section-blend-wrap" aria-hidden="true"></div>
 
   <section class="gallery">
     <div class="section-intro">
