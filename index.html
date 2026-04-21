@@ -271,7 +271,8 @@
     }
 
     .about,
-    .gallery {
+    .gallery,
+    .benefits {
       position: relative;
       overflow: hidden;
       color: white;
@@ -283,56 +284,12 @@
     }
 
     .about {
-      padding: 100px 2rem 20px;
+      padding: 100px 2rem 55px;
       text-align: center;
     }
 
     .gallery {
-      padding: 20px 2rem 95px;
-    }
-
-    .section-blend-wrap {
-      position: relative;
-      height: 120px;
-      margin-top: -15px;
-      margin-bottom: -15px;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(8, 12, 18, 0.00) 0%,
-          rgba(10, 15, 24, 0.52) 20%,
-          rgba(12, 18, 28, 0.82) 50%,
-          rgba(10, 15, 24, 0.52) 80%,
-          rgba(8, 12, 18, 0.00) 100%
-        );
-      z-index: 2;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .section-blend-wrap::before {
-      content: "";
-      position: absolute;
-      inset: -30px 0;
-      background:
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 42%),
-        radial-gradient(circle at center, rgba(220, 38, 38, 0.14), transparent 34%);
-      filter: blur(26px);
-      opacity: 0.95;
-    }
-
-    .section-blend-wrap::after {
-      content: "";
-      position: absolute;
-      left: 8%;
-      right: 8%;
-      top: 50%;
-      height: 58px;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.045);
-      filter: blur(38px);
-      border-radius: 999px;
-      opacity: 0.9;
+      padding: 55px 2rem 95px;
     }
 
     .about-copy {
@@ -375,7 +332,10 @@
       position: relative;
       overflow: hidden;
       background: linear-gradient(180deg, rgba(10, 15, 24, 0.98) 0%, rgba(14, 20, 31, 0.98) 100%);
-      padding: 2.2rem 0 2.8rem;
+      padding: 1.2rem 0 2.1rem;
+      margin-top: -18px;
+      margin-bottom: -12px;
+      z-index: 2;
     }
 
     .impact-banner::before {
@@ -409,15 +369,31 @@
     }
 
     .benefits {
-      background: white;
-      padding: 100px 2rem;
+      padding: 120px 2rem 100px;
     }
 
+    .benefits::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top center, rgba(59, 130, 246, 0.10), transparent 34%),
+        radial-gradient(circle at bottom center, rgba(255, 255, 255, 0.04), transparent 40%);
+      filter: blur(24px);
+      pointer-events: none;
+    }
+
+    .benefits .section-label,
+    .benefits .section-title,
     .benefits .section-text {
-      color: #4b5563;
+      position: relative;
+      z-index: 2;
+      color: white;
     }
 
     .benefits-grid {
+      position: relative;
+      z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -426,16 +402,20 @@
     }
 
     .benefit-card {
-      background: var(--section-light);
+      background: rgba(255, 255, 255, 0.06);
       padding: 2.5rem 2rem;
-      border-top: 4px solid var(--primary-red);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      border-top: 4px solid rgba(220, 38, 38, 0.9);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .benefit-number {
       font-size: 3rem;
       font-weight: 900;
-      color: var(--primary-red);
+      color: #f87171;
       line-height: 1;
       margin-bottom: 1rem;
     }
@@ -444,11 +424,11 @@
       font-size: 1.4rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
-      color: #111827;
+      color: white;
     }
 
     .benefit-card p {
-      color: #4b5563;
+      color: #e5e7eb;
       font-size: 1rem;
       line-height: 1.8;
     }
@@ -886,11 +866,16 @@
 
       .about {
         padding-top: 80px;
-        padding-bottom: 10px;
+        padding-bottom: 40px;
       }
 
       .gallery {
-        padding-top: 10px;
+        padding-top: 40px;
+        padding-bottom: 80px;
+      }
+
+      .benefits {
+        padding-top: 95px;
         padding-bottom: 80px;
       }
 
@@ -900,14 +885,9 @@
         font-size: 2rem;
       }
 
-      .section-blend-wrap {
-        height: 90px;
-        margin-top: -10px;
-        margin-bottom: -10px;
-      }
-
       .impact-banner {
-        padding: 1.5rem 0 1.8rem;
+        padding: 1rem 0 1.6rem;
+        margin-top: -12px;
       }
 
       .impact-text {
@@ -1044,8 +1024,6 @@
     </div>
   </section>
 
-  <div class="section-blend-wrap" aria-hidden="true"></div>
-
   <section class="gallery">
     <div class="section-intro">
       <div class="section-label">Training Environment</div>
@@ -1088,7 +1066,7 @@
     <div class="section-intro">
       <div class="section-label">Why Work With a Trainer</div>
       <h2 class="section-title">3 Reasons to Hire a Personal Trainer</h2>
-      <p class="section-text" style="color:#4b5563;">
+      <p class="section-text">
         A knowledgeable coach can provide the structure, technique, and support needed to help you
         stay consistent and get better results.
       </p>
