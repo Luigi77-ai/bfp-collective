@@ -12,16 +12,14 @@
     }
 
     :root {
-      --primary-red: #DC2626;
-      --primary-red-dark: #B91C1C;
-      --dark-bg: #1F2937;
+      --primary-red: #dc2626;
+      --primary-red-dark: #b91c1c;
+      --dark-bg: #1f2937;
       --darker-bg: #111827;
-      --light-text: #F3F4F6;
-      --muted-text: #D1D5DB;
-      --soft-gray: #9CA3AF;
-      --white: #FFFFFF;
-      --border-dark: #374151;
-      --section-light: #F9FAFB;
+      --light-text: #f3f4f6;
+      --muted-text: #d1d5db;
+      --soft-gray: #9ca3af;
+      --section-light: #f9fafb;
     }
 
     html {
@@ -43,10 +41,6 @@
 
     a {
       text-decoration: none;
-    }
-
-    .top-bar {
-      display: none;
     }
 
     nav {
@@ -95,7 +89,7 @@
       color: #ffffff;
       font-weight: 700;
       font-size: 1rem;
-      transition: color 0.3s ease, opacity 0.3s ease;
+      transition: color 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
       white-space: nowrap;
@@ -171,7 +165,7 @@
       max-width: 780px;
       margin: 0 auto 2.2rem;
       font-size: 1.1rem;
-      color: #E5E7EB;
+      color: #e5e7eb;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
 
@@ -239,7 +233,7 @@
     .section-text {
       font-size: 1.08rem;
       line-height: 1.9;
-      color: #E5E7EB;
+      color: #e5e7eb;
     }
 
     .about {
@@ -258,7 +252,7 @@
       margin-bottom: 1.4rem;
       font-size: 1.08rem;
       line-height: 1.9;
-      color: #E5E7EB;
+      color: #e5e7eb;
     }
 
     .gallery {
@@ -269,7 +263,7 @@
     .gallery-grid {
       max-width: 1280px;
       margin: 0 auto;
-      columns: 4 260px;
+      columns: 3 260px;
       column-gap: 1rem;
     }
 
@@ -294,7 +288,7 @@
     }
 
     .benefits .section-text {
-      color: #4B5563;
+      color: #4b5563;
     }
 
     .benefits-grid {
@@ -328,7 +322,7 @@
     }
 
     .benefit-card p {
-      color: #4B5563;
+      color: #4b5563;
       font-size: 1rem;
       line-height: 1.8;
     }
@@ -373,18 +367,6 @@
       z-index: 1;
     }
 
-    .service-item::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(220, 38, 38, 0.00) 0%,
-        rgba(220, 38, 38, 0.05) 100%
-      );
-      z-index: 1;
-    }
-
     .service-overlay {
       position: relative;
       z-index: 2;
@@ -402,7 +384,7 @@
 
     .service-label {
       font-size: 0.78rem;
-      color: #FCA5A5;
+      color: #fca5a5;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
@@ -420,7 +402,7 @@
     }
 
     .service-overlay p {
-      color: #F3F4F6;
+      color: #f3f4f6;
       font-size: 0.98rem;
       line-height: 1.75;
       max-width: 32ch;
@@ -441,7 +423,7 @@
     }
 
     .values-track span {
-      color: #F3F4F6;
+      color: #f3f4f6;
       font-size: 0.92rem;
       font-weight: 700;
       letter-spacing: 1.2px;
@@ -456,12 +438,8 @@
     }
 
     @keyframes scrollTicker {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .pricing-faq {
@@ -548,7 +526,7 @@
     }
 
     .pricing-card p {
-      color: #E5E7EB;
+      color: #e5e7eb;
     }
 
     .pricing-card ul {
@@ -560,7 +538,7 @@
     .pricing-card li {
       padding: 0.8rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      color: #F3F4F6;
+      color: #f3f4f6;
     }
 
     .faq-box {
@@ -574,7 +552,7 @@
     }
 
     .faq-box .section-label {
-      color: #F3F4F6;
+      color: #f3f4f6;
     }
 
     .faq-box h2 {
@@ -585,7 +563,7 @@
     }
 
     .faq-box > p {
-      color: #E5E7EB;
+      color: #e5e7eb;
       line-height: 1.8;
       margin-bottom: 1.5rem;
     }
@@ -614,7 +592,7 @@
     }
 
     .faq-item p {
-      color: #E5E7EB;
+      color: #e5e7eb;
       line-height: 1.8;
       font-size: 0.98rem;
     }
@@ -649,7 +627,7 @@
 
     .contact-item p {
       font-size: 1.08rem;
-      color: #E5E7EB;
+      color: #e5e7eb;
     }
 
     .contact-form {
@@ -685,7 +663,7 @@
 
     .contact-form input::placeholder,
     .contact-form textarea::placeholder {
-      color: #9CA3AF;
+      color: #9ca3af;
     }
 
     .contact-form textarea {
@@ -717,7 +695,7 @@
 
     .footer-col p,
     .footer-col a {
-      color: #D1D5DB;
+      color: #d1d5db;
       font-size: 0.96rem;
       line-height: 1.8;
     }
@@ -727,10 +705,10 @@
     }
 
     .footer-bottom {
-      border-top: 1px solid #1F2937;
+      border-top: 1px solid #1f2937;
       padding-top: 1.5rem;
       text-align: center;
-      color: #9CA3AF;
+      color: #9ca3af;
       font-size: 0.95rem;
     }
 
@@ -853,8 +831,6 @@
   </style>
 </head>
 <body>
-  <div class="top-bar"></div>
-
   <nav>
     <div class="nav-container">
       <a href="#home" class="logo">
@@ -932,14 +908,24 @@
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="./env-1.jpg" alt="Athlete training on rowing machine" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-2.jpg" alt="Basketball training session in gym" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-3.jpg" alt="Athlete training with battle rope" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-4.jpg" alt="Basketball action game photo" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-5.jpg" alt="Athlete preparing during competition" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-6.jpg" alt="Basketball team entrance moment" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-7.jpg" alt="Scoreboard and player of the game moment" loading="lazy"></div>
-      <div class="gallery-item"><img src="./env-8.jpg" alt="Athlete standing after race finish" loading="lazy"></div>
+      <div class="gallery-item">
+        <img src="./Photo Mar 27 2026, 11 22 34 AM.jpg" alt="Athlete using rowing machine" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="./Photo Apr 09 2026, 9 41 20 PM (9).jpg" alt="Basketball training photo" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="./Photo Mar 27 2026, 10 11 54 AM.jpg" alt="Athlete working with battle rope" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="./Photo Mar 27 2026, 10 12 39 AM.jpg" alt="Athlete during gym event" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="./Photo Mar 27 2026, 10 32 40 AM.jpg" alt="Competition training image" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="./Photo Apr 09 2026, 9 41 20 PM (10).jpg" alt="Basketball game highlight" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -997,7 +983,7 @@
     </div>
 
     <div class="services-grid">
-      <div class="service-item" style="background-image: url('./service-1.jpg');">
+      <div class="service-item" style="background-image: url('./Photo Mar 27 2026, 10 03 19 AM.jpg');">
         <div class="service-overlay">
           <div class="service-label">Training</div>
           <div class="service-title">1-on-1 Personal Training</div>
@@ -1008,7 +994,7 @@
         </div>
       </div>
 
-      <div class="service-item" style="background-image: url('./service-2.jpg');">
+      <div class="service-item" style="background-image: url('./Photo Mar 27 2026, 10 59 11 AM.jpg');">
         <div class="service-overlay">
           <div class="service-label">Training</div>
           <div class="service-title">Small Group Training</div>
@@ -1019,7 +1005,7 @@
         </div>
       </div>
 
-      <div class="service-item" style="background-image: url('./service-3.jpg');">
+      <div class="service-item" style="background-image: url('./Photo Feb 28 2020, 6 52 47 PM.jpg');">
         <div class="service-overlay">
           <div class="service-label">Training</div>
           <div class="service-title">Online & Virtual Coaching</div>
@@ -1042,7 +1028,6 @@
       <span>Recovery</span><span class="dot">•</span>
       <span>Mindset</span><span class="dot">•</span>
       <span>Results</span><span class="dot">•</span>
-
       <span>Strength</span><span class="dot">•</span>
       <span>Discipline</span><span class="dot">•</span>
       <span>Performance</span><span class="dot">•</span>
