@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +16,25 @@
       --dark-bg: #1F2937;
       --darker-bg: #111827;
       --light-text: #F3F4F6;
-      --accent-blue: #1E40AF;
+      --muted-text: #D1D5DB;
+      --white: #FFFFFF;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Arial', 'Helvetica', sans-serif;
       line-height: 1.6;
       color: #333;
+      background: #fff;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
     }
 
     /* Top Red Bar */
@@ -34,11 +46,13 @@
 
     /* Navigation */
     nav {
-      background: var(--darker-bg);
-      padding: 1.5rem 0;
+      background: rgba(17, 24, 39, 0.96);
+      backdrop-filter: blur(8px);
+      padding: 0.9rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     .nav-container {
@@ -48,38 +62,41 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 2rem;
     }
 
     .logo {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      color: white;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
+      flex-shrink: 0;
     }
 
-    .logo-text {
-      color: white;
+    .logo img {
+      height: 76px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.22));
     }
-
-    .logo-text .performance { color: white; }
-    .logo-text .training { color: var(--primary-red); }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--light-text);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -88,40 +105,73 @@
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      min-height: 85vh;
+      position: relative;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.55) 45%,
+        rgba(0, 0, 0, 0.72) 100%
+      );
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 980px;
     }
 
     .hero-content h2 {
-      color: #aaa;
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 2px;
+      color: var(--muted-text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
 
     .hero-content h1 {
       color: white;
-      font-size: 4.5rem;
+      font-size: 4.8rem;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      line-height: 1.05;
+    }
+
+    .hero-content p {
+      max-width: 760px;
+      margin: 0 auto 2.2rem;
+      font-size: 1.1rem;
+      color: #E5E7EB;
     }
 
     .cta-buttons {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -129,27 +179,29 @@
     .cta-button {
       background: var(--primary-red);
       color: white;
-      padding: 1.2rem 2.5rem;
-      border: none;
+      padding: 1rem 2.2rem;
+      border: 2px solid var(--primary-red);
       font-size: 0.95rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
-      border: 2px solid var(--primary-red);
+      display: inline-block;
     }
 
     .cta-button:hover {
       background: #B91C1C;
+      border-color: #B91C1C;
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+      box-shadow: 0 10px 25px rgba(220, 38, 38, 0.35);
     }
 
     .cta-button.secondary {
       background: transparent;
       border: 2px solid white;
+      color: white;
     }
 
     .cta-button.secondary:hover {
@@ -166,41 +218,43 @@
     }
 
     .about h3 {
-      color: #999;
+      color: #9CA3AF;
       font-size: 0.9rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .about h2 {
       font-size: 2.8rem;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 1px;
     }
 
     .about p {
       max-width: 900px;
-      margin: 0 auto 2.5rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #ddd;
+      margin: 0 auto 1.5rem;
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: #E5E7EB;
+    }
+
+    .about .cta-button {
+      margin-top: 1.2rem;
     }
 
     /* Services Grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 0;
-      margin-top: 80px;
     }
 
     .service-item {
       position: relative;
       overflow: hidden;
-      height: 400px;
+      min-height: 420px;
       background-size: cover;
       background-position: center;
       display: flex;
@@ -208,25 +262,26 @@
     }
 
     .service-overlay {
-      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.18));
       width: 100%;
       padding: 2rem;
     }
 
     .service-label {
-      font-size: 0.8rem;
-      color: #999;
+      font-size: 0.78rem;
+      color: #D1D5DB;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
 
     .service-title {
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 800;
       text-transform: uppercase;
       color: white;
       letter-spacing: 1px;
+      line-height: 1.1;
     }
 
     /* Pricing */
@@ -241,6 +296,7 @@
       font-weight: 800;
       margin-bottom: 3rem;
       text-transform: uppercase;
+      color: #111827;
     }
 
     .pricing-grid {
@@ -255,15 +311,17 @@
       background: var(--dark-bg);
       color: white;
       padding: 2.5rem;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     .pricing-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
     }
 
     .pricing-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -273,18 +331,23 @@
       font-size: 3rem;
       font-weight: 900;
       color: var(--primary-red);
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
+    }
+
+    .pricing-card p {
+      color: #E5E7EB;
     }
 
     .pricing-card ul {
       list-style: none;
       text-align: left;
-      margin: 2rem 0;
+      margin: 2rem 0 0;
     }
 
     .pricing-card li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #444;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #374151;
+      color: #F3F4F6;
     }
 
     /* Contact */
@@ -298,16 +361,23 @@
     .contact h2 {
       font-size: 2.5rem;
       font-weight: 800;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
       text-transform: uppercase;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact-grid {
-      max-width: 900px;
+      max-width: 950px;
       margin: 2rem auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+    }
+
+    .contact-item {
+      padding: 1rem;
     }
 
     .contact-item h4 {
@@ -319,7 +389,8 @@
     }
 
     .contact-item p {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
+      color: #E5E7EB;
     }
 
     /* Footer */
@@ -330,14 +401,77 @@
       padding: 2rem;
     }
 
+    footer p {
+      color: #D1D5DB;
+      font-size: 0.95rem;
+    }
+
     /* Responsive */
+    @media (max-width: 950px) {
+      .nav-container {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .logo img {
+        height: 68px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 1.25rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3.4rem;
+      }
+    }
+
     @media (max-width: 768px) {
+      nav {
+        padding: 0.8rem 0 1rem;
+      }
+
+      .nav-container {
+        padding: 0 1.25rem;
+      }
+
+      .logo img {
+        height: 58px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .hero {
+        min-height: 82vh;
+        padding: 2rem 1.25rem;
+      }
+
       .hero-content h1 {
         font-size: 2.5rem;
       }
-      .nav-links {
-        flex-direction: column;
-        gap: 1rem;
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .about,
+      .pricing,
+      .contact {
+        padding: 80px 1.25rem;
+      }
+
+      .about h2,
+      .pricing h2,
+      .contact h2 {
+        font-size: 2rem;
+      }
+
+      .service-item {
+        min-height: 340px;
       }
     }
   </style>
@@ -349,15 +483,14 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="#" class="logo">
-        <span class="logo-text">
-          <span class="performance">BFP</span> <span class="training">COLLECTIVE</span>
-        </span>
+      <a href="#home" class="logo">
+        <img src="./2.jpg" alt="BFP Collective logo">
       </a>
+
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#services">Our Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Programs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -365,12 +498,22 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="./6053511-hd_1920_1080_25fps.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
-      <h2>An Innovative Approach To</h2>
-      <h1>PERFORMANCE<br>TRAINING</h1>
+      <h2>Train With Purpose</h2>
+      <h1>Elite Performance Training</h1>
+      <p>
+        Build strength, improve conditioning, and reach your goals with customized coaching designed for every fitness level.
+      </p>
       <div class="cta-buttons">
         <a href="#contact" class="cta-button">Get Started</a>
-        <a href="#services" class="cta-button secondary">Learn More</a>
+        <a href="#services" class="cta-button secondary">Explore Services</a>
       </div>
     </div>
   </section>
@@ -378,37 +521,43 @@
   <!-- About Section -->
   <section class="about">
     <h3>About BFP Collective</h3>
-    <h2>Performance Training Excellence</h2>
-    <p>BFP Collective was created to cater to the person or personal trainer in search of a comfortable, yet equipped, space to take their training to the next level. From strength training and conditioning, to nutrition and weight loss, we design personalized plans to help you reach your fitness goals.</p>
-    <p>Take the next step in your fitness journey and schedule a fitness consultation with us!</p>
-    <a href="#contact" class="cta-button">Schedule Consultation</a>
+    <h2>Where Performance Meets Precision</h2>
+    <p>
+      BFP Collective was created for individuals and personal trainers looking for a comfortable, fully equipped space to take training to the next level.
+    </p>
+    <p>
+      From strength development and conditioning to nutrition guidance and weight loss support, we create personalized programs built around your goals.
+    </p>
+    <a href="#contact" class="cta-button">Schedule a Consultation</a>
   </section>
 
   <!-- Services Grid -->
   <div class="services-grid" id="services">
-    <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80')">
+    <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80')">
       <div class="service-overlay">
         <div class="service-label">Training</div>
-        <div class="service-title">1-ON-1 PERSONAL<br>TRAINING</div>
+        <div class="service-title">1-on-1 Personal Training</div>
       </div>
     </div>
-    <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80')">
+
+    <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=80')">
       <div class="service-overlay">
         <div class="service-label">Training</div>
-        <div class="service-title">SMALL GROUP<br>TRAINING</div>
+        <div class="service-title">Small Group Training</div>
       </div>
     </div>
-    <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1434596922112-19c563067271?w=800&q=80')">
+
+    <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1434596922112-19c563067271?w=1200&q=80')">
       <div class="service-overlay">
         <div class="service-label">Training</div>
-        <div class="service-title">ONLINE &<br>VIRTUAL</div>
+        <div class="service-title">Online & Virtual Coaching</div>
       </div>
     </div>
   </div>
 
   <!-- Pricing Section -->
   <section class="pricing" id="pricing">
-    <h2>Training Programs & Pricing</h2>
+    <h2>Programs & Pricing</h2>
     <div class="pricing-grid">
       <div class="pricing-card">
         <h3>1-on-1 Personal Training</h3>
@@ -417,23 +566,25 @@
         <ul>
           <li>10-Session Package: $500</li>
           <li>20-Session Package: $900</li>
-          <li>100% Personalized Attention</li>
+          <li>Fully Personalized Attention</li>
           <li>Custom Training Plans</li>
         </ul>
       </div>
+
       <div class="pricing-card">
         <h3>Small Group Training</h3>
         <div class="price">$105</div>
-        <p>60-Minute Session (Max. 3)</p>
+        <p>60-Minute Session (Max. 3 People)</p>
         <ul>
-          <li>$35 per person</li>
+          <li>$35 Per Person</li>
           <li>10-Session Package: $900</li>
           <li>20-Session Package: $1500</li>
-          <li>Perfect for Friends/Family</li>
+          <li>Ideal for Friends or Family</li>
         </ul>
       </div>
+
       <div class="pricing-card">
-        <h3>Online & Virtual</h3>
+        <h3>Online & Virtual Coaching</h3>
         <div class="price">$48</div>
         <p>60-Minute Session</p>
         <ul>
@@ -448,7 +599,7 @@
 
   <!-- Contact Section -->
   <section class="contact" id="contact">
-    <h2>Contact Us Today For Your FREE Fitness Assessment</h2>
+    <h2>Contact Us Today for Your Free Fitness Assessment</h2>
     <div class="contact-grid">
       <div class="contact-item">
         <h4>Location</h4>
@@ -461,7 +612,7 @@
       <div class="contact-item">
         <h4>Hours</h4>
         <p>Monday - Friday</p>
-        <p>9:00am - 5:00pm</p>
+        <p>9:00 AM - 5:00 PM</p>
       </div>
     </div>
     <a href="tel:718-887-5723" class="cta-button" style="margin-top: 2rem;">Call Now</a>
