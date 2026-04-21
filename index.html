@@ -383,49 +383,83 @@
       line-height: 1.7;
     }
 
+    /* PRICING + FAQS VIDEO SECTION */
     .pricing-faq {
-      background: #f8fafc;
-      padding: 100px 2rem;
+      position: relative;
+      overflow: hidden;
+      padding: 110px 2rem;
+      background: #000;
     }
 
+    .pricing-faq-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .pricing-faq-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5, 8, 14, 0.45) 0%, rgba(5, 8, 14, 0.62) 45%, rgba(5, 8, 14, 0.72) 100%);
+      z-index: 2;
+    }
+
+    .pricing-faq-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-faq .section-label,
+    .pricing-faq .section-title,
     .pricing-faq .section-text {
-      color: #4B5563;
+      color: white;
     }
 
     .pricing-grid {
-      max-width: 1200px;
-      margin: 0 auto 3rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      margin: 0 auto 3rem;
     }
 
     .pricing-card {
-      background: var(--dark-bg);
+      background: rgba(17, 24, 39, 0.45);
       color: white;
-      padding: 2.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border-radius: 10px;
+      padding: 2.4rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
 
     .pricing-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+      background: rgba(17, 24, 39, 0.58);
     }
 
     .pricing-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      color: white;
     }
 
     .price {
       font-size: 3rem;
       font-weight: 900;
-      color: var(--primary-red);
-      margin: 1.2rem 0;
+      color: #ffffff;
+      margin: 1rem 0;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
     .pricing-card p {
@@ -440,17 +474,35 @@
 
     .pricing-card li {
       padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       color: #F3F4F6;
     }
 
     .faq-box {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.20);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .faq-box .section-label {
+      color: #F3F4F6;
+    }
+
+    .faq-box h2 {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .faq-box > p {
+      color: #E5E7EB;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
 
     .faq-list {
@@ -460,22 +512,24 @@
     }
 
     .faq-item {
-      background: #ffffff;
+      background: rgba(17, 24, 39, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-left: 4px solid var(--primary-red);
       padding: 1.25rem 1.25rem 1.25rem 1rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
-      border-radius: 6px;
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .faq-item h3 {
-      color: #111827;
+      color: #ffffff;
       font-size: 1.05rem;
       margin-bottom: 0.7rem;
       line-height: 1.5;
     }
 
     .faq-item p {
-      color: #4B5563;
+      color: #E5E7EB;
       line-height: 1.8;
       font-size: 0.98rem;
     }
@@ -668,7 +722,8 @@
       }
 
       .section-title,
-      .contact h2 {
+      .contact h2,
+      .faq-box h2 {
         font-size: 2rem;
       }
 
@@ -686,7 +741,7 @@
       }
 
       .price {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
       }
     }
   </style>
@@ -869,99 +924,106 @@
   </section>
 
   <section class="pricing-faq" id="pricing-faq">
-    <div class="section-intro">
-      <div class="section-label">Pricing & FAQs</div>
-      <h2 class="section-title">Programs, Pricing & Frequently Asked Questions</h2>
-      <p class="section-text">
-        Review our training options, package details, and answers to the most common questions from new clients.
-      </p>
-    </div>
+    <video class="pricing-faq-video" autoplay muted loop playsinline>
+      <source src="./pricing-bg.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
 
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>1-on-1 Personal Training</h3>
-        <div class="price">$55</div>
-        <p>60-Minute Single Session</p>
-        <ul>
-          <li>10-Session Package: $500</li>
-          <li>20-Session Package: $900</li>
-          <li>Fully Personalized Attention</li>
-          <li>Custom Training Plans</li>
-        </ul>
+    <div class="pricing-faq-overlay"></div>
+
+    <div class="pricing-faq-content">
+      <div class="section-intro">
+        <div class="section-label">Pricing & FAQs</div>
+        <h2 class="section-title">Programs, Pricing & Frequently Asked Questions</h2>
+        <p class="section-text">
+          Review our training options, package details, and answers to the most common questions from new clients.
+        </p>
       </div>
 
-      <div class="pricing-card">
-        <h3>Small Group Training</h3>
-        <div class="price">$105</div>
-        <p>60-Minute Session (Max. 3 People)</p>
-        <ul>
-          <li>$35 Per Person</li>
-          <li>10-Session Package: $900</li>
-          <li>20-Session Package: $1500</li>
-          <li>Ideal for Friends or Family</li>
-        </ul>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>1-on-1 Personal Training</h3>
+          <div class="price">$55</div>
+          <p>60-Minute Single Session</p>
+          <ul>
+            <li>10-Session Package: $500</li>
+            <li>20-Session Package: $900</li>
+            <li>Fully Personalized Attention</li>
+            <li>Custom Training Plans</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Small Group Training</h3>
+          <div class="price">$105</div>
+          <p>60-Minute Session (Max. 3 People)</p>
+          <ul>
+            <li>$35 Per Person</li>
+            <li>10-Session Package: $900</li>
+            <li>20-Session Package: $1500</li>
+            <li>Ideal for Friends or Family</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Online & Virtual Coaching</h3>
+          <div class="price">$48</div>
+          <p>60-Minute Session</p>
+          <ul>
+            <li>10-Session Package: $420</li>
+            <li>20-Session Package: $760</li>
+            <li>Train From Anywhere</li>
+            <li>Flexible Scheduling</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="pricing-card">
-        <h3>Online & Virtual Coaching</h3>
-        <div class="price">$48</div>
-        <p>60-Minute Session</p>
-        <ul>
-          <li>10-Session Package: $420</li>
-          <li>20-Session Package: $760</li>
-          <li>Train From Anywhere</li>
-          <li>Flexible Scheduling</li>
-        </ul>
-      </div>
-    </div>
+      <div class="faq-box">
+        <div class="section-label" style="margin-bottom: 0.5rem;">FAQs</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>
+          Here are some common questions from new and returning clients.
+        </p>
 
-    <div class="faq-box">
-      <div class="section-label" style="margin-bottom: 0.5rem;">FAQs</div>
-      <h2 style="font-size: 2rem; color: #111827; margin-bottom: 0.75rem; text-transform: uppercase;">
-        Frequently Asked Questions
-      </h2>
-      <p style="color: #4B5563; line-height: 1.8; margin-bottom: 1.5rem;">
-        Here are some common questions from new and returning clients.
-      </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>1. How often should I work with a personal trainer?</h3>
+            <p>
+              It depends on your schedule, current fitness level, and goals. For stronger results
+              and better consistency, we generally recommend training at least three times per week.
+            </p>
+          </div>
 
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3>1. How often should I work with a personal trainer?</h3>
-          <p>
-            It depends on your schedule, current fitness level, and goals. For stronger results
-            and better consistency, we generally recommend training at least three times per week.
-          </p>
-        </div>
+          <div class="faq-item">
+            <h3>2. Do I need to already be in shape before I start?</h3>
+            <p>
+              Not at all. We work with clients across a wide range of fitness levels and create
+              programs that meet you where you are right now.
+            </p>
+          </div>
 
-        <div class="faq-item">
-          <h3>2. Do I need to already be in shape before I start?</h3>
-          <p>
-            Not at all. We work with clients across a wide range of fitness levels and create
-            programs that meet you where you are right now.
-          </p>
-        </div>
+          <div class="faq-item">
+            <h3>3. What should I eat before a workout?</h3>
+            <p>
+              A light meal or snack with protein and carbohydrates is usually a good option.
+              Staying hydrated before, during, and after your session is also important.
+            </p>
+          </div>
 
-        <div class="faq-item">
-          <h3>3. What should I eat before a workout?</h3>
-          <p>
-            A light meal or snack with protein and carbohydrates is usually a good option.
-            Staying hydrated before, during, and after your session is also important.
-          </p>
-        </div>
+          <div class="faq-item">
+            <h3>4. What types of payment do you accept?</h3>
+            <p>
+              We accept cash, checks, and credit cards for training sessions and packages.
+            </p>
+          </div>
 
-        <div class="faq-item">
-          <h3>4. What types of payment do you accept?</h3>
-          <p>
-            We accept cash, checks, and credit cards for training sessions and packages.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>5. Can I cancel a training session?</h3>
-          <p>
-            Yes. We ask that you provide at least 24 hours notice if you need to cancel or
-            reschedule your session.
-          </p>
+          <div class="faq-item">
+            <h3>5. Can I cancel a training session?</h3>
+            <p>
+              Yes. We ask that you provide at least 24 hours notice if you need to cancel or
+              reschedule your session.
+            </p>
+          </div>
         </div>
       </div>
     </div>
