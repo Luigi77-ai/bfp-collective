@@ -392,20 +392,12 @@
       color: #4B5563;
     }
 
-    .pricing-faq-grid {
+    .pricing-grid {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0 auto 3rem;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      align-items: start;
-    }
-
-    .pricing-column,
-    .faq-column {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
     }
 
     .pricing-card {
@@ -453,6 +445,8 @@
     }
 
     .faq-box {
+      max-width: 1200px;
+      margin: 0 auto;
       background: white;
       padding: 2rem;
       border-radius: 10px;
@@ -599,12 +593,6 @@
       text-align: center;
       color: #9CA3AF;
       font-size: 0.95rem;
-    }
-
-    @media (max-width: 1100px) {
-      .pricing-faq-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 950px) {
@@ -889,95 +877,91 @@
       </p>
     </div>
 
-    <div class="pricing-faq-grid">
-      <div class="pricing-column">
-        <div class="pricing-card">
-          <h3>1-on-1 Personal Training</h3>
-          <div class="price">$55</div>
-          <p>60-Minute Single Session</p>
-          <ul>
-            <li>10-Session Package: $500</li>
-            <li>20-Session Package: $900</li>
-            <li>Fully Personalized Attention</li>
-            <li>Custom Training Plans</li>
-          </ul>
-        </div>
-
-        <div class="pricing-card">
-          <h3>Small Group Training</h3>
-          <div class="price">$105</div>
-          <p>60-Minute Session (Max. 3 People)</p>
-          <ul>
-            <li>$35 Per Person</li>
-            <li>10-Session Package: $900</li>
-            <li>20-Session Package: $1500</li>
-            <li>Ideal for Friends or Family</li>
-          </ul>
-        </div>
-
-        <div class="pricing-card">
-          <h3>Online & Virtual Coaching</h3>
-          <div class="price">$48</div>
-          <p>60-Minute Session</p>
-          <ul>
-            <li>10-Session Package: $420</li>
-            <li>20-Session Package: $760</li>
-            <li>Train From Anywhere</li>
-            <li>Flexible Scheduling</li>
-          </ul>
-        </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>1-on-1 Personal Training</h3>
+        <div class="price">$55</div>
+        <p>60-Minute Single Session</p>
+        <ul>
+          <li>10-Session Package: $500</li>
+          <li>20-Session Package: $900</li>
+          <li>Fully Personalized Attention</li>
+          <li>Custom Training Plans</li>
+        </ul>
       </div>
 
-      <div class="faq-column">
-        <div class="faq-box">
-          <div class="section-label" style="margin-bottom: 0.5rem;">FAQs</div>
-          <h2 style="font-size: 2rem; color: #111827; margin-bottom: 0.75rem; text-transform: uppercase;">
-            Frequently Asked Questions
-          </h2>
-          <p style="color: #4B5563; line-height: 1.8; margin-bottom: 1.5rem;">
-            Here are some common questions from new and returning clients.
+      <div class="pricing-card">
+        <h3>Small Group Training</h3>
+        <div class="price">$105</div>
+        <p>60-Minute Session (Max. 3 People)</p>
+        <ul>
+          <li>$35 Per Person</li>
+          <li>10-Session Package: $900</li>
+          <li>20-Session Package: $1500</li>
+          <li>Ideal for Friends or Family</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Online & Virtual Coaching</h3>
+        <div class="price">$48</div>
+        <p>60-Minute Session</p>
+        <ul>
+          <li>10-Session Package: $420</li>
+          <li>20-Session Package: $760</li>
+          <li>Train From Anywhere</li>
+          <li>Flexible Scheduling</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-box">
+      <div class="section-label" style="margin-bottom: 0.5rem;">FAQs</div>
+      <h2 style="font-size: 2rem; color: #111827; margin-bottom: 0.75rem; text-transform: uppercase;">
+        Frequently Asked Questions
+      </h2>
+      <p style="color: #4B5563; line-height: 1.8; margin-bottom: 1.5rem;">
+        Here are some common questions from new and returning clients.
+      </p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>1. How often should I work with a personal trainer?</h3>
+          <p>
+            It depends on your schedule, current fitness level, and goals. For stronger results
+            and better consistency, we generally recommend training at least three times per week.
           </p>
+        </div>
 
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>1. How often should I work with a personal trainer?</h3>
-              <p>
-                It depends on your schedule, current fitness level, and goals. For stronger results
-                and better consistency, we generally recommend training at least three times per week.
-              </p>
-            </div>
+        <div class="faq-item">
+          <h3>2. Do I need to already be in shape before I start?</h3>
+          <p>
+            Not at all. We work with clients across a wide range of fitness levels and create
+            programs that meet you where you are right now.
+          </p>
+        </div>
 
-            <div class="faq-item">
-              <h3>2. Do I need to already be in shape before I start?</h3>
-              <p>
-                Not at all. We work with clients across a wide range of fitness levels and create
-                programs that meet you where you are right now.
-              </p>
-            </div>
+        <div class="faq-item">
+          <h3>3. What should I eat before a workout?</h3>
+          <p>
+            A light meal or snack with protein and carbohydrates is usually a good option.
+            Staying hydrated before, during, and after your session is also important.
+          </p>
+        </div>
 
-            <div class="faq-item">
-              <h3>3. What should I eat before a workout?</h3>
-              <p>
-                A light meal or snack with protein and carbohydrates is usually a good option.
-                Staying hydrated before, during, and after your session is also important.
-              </p>
-            </div>
+        <div class="faq-item">
+          <h3>4. What types of payment do you accept?</h3>
+          <p>
+            We accept cash, checks, and credit cards for training sessions and packages.
+          </p>
+        </div>
 
-            <div class="faq-item">
-              <h3>4. What types of payment do you accept?</h3>
-              <p>
-                We accept cash, checks, and credit cards for training sessions and packages.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>5. Can I cancel a training session?</h3>
-              <p>
-                Yes. We ask that you provide at least 24 hours notice if you need to cancel or
-                reschedule your session.
-              </p>
-            </div>
-          </div>
+        <div class="faq-item">
+          <h3>5. Can I cancel a training session?</h3>
+          <p>
+            Yes. We ask that you provide at least 24 hours notice if you need to cancel or
+            reschedule your session.
+          </p>
         </div>
       </div>
     </div>
