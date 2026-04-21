@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFP Collective - Personal Training Excellence</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #1E3A8A;
+      --secondary-blue: #3B82F6;
+      --dark-bg: #0F172A;
+      --light-bg: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #64748B;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    /* Navigation */
+    nav {
+      background: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-blue);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-blue);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-blue) 100%);
+      color: white;
+      padding: 150px 2rem 100px;
+      margin-top: 70px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #E2E8F0;
+    }
+
+    .cta-button {
+      background: var(--secondary-blue);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 100px 2rem;
+      background: var(--light-bg);
+    }
+
+    .section-header {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-blue);
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-blue);
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 100px 2rem;
+      background: white;
+    }
+
+    .pricing-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background: var(--light-bg);
+      padding: 2.5rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: scale(1.05);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-blue);
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--secondary-blue);
+      margin: 1rem 0;
+    }
+
+    .price-detail {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 2rem;
+      background: var(--dark-bg);
+      color: white;
+      text-align: center;
+    }
+
+    .contact-info {
+      max-width: 800px;
+      margin: 2rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-item {
+      padding: 1rem;
+    }
+
+    .contact-item h4 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary-blue);
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">BFP COLLECTIVE</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Personal Training That Gets Noticeable Results</h1>
+      <p>I'll help you achieve your health and fitness goals</p>
+      <a href="#contact" class="cta-button">Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>From strength training and conditioning, to nutrition and weight loss, we design personalized plans to help you reach your fitness goals.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>1-on-1 Personal Training</h3>
+        <p>Private sessions with stretching, warmup, and personalized workouts for best results and accountability. Our 1-on-1 training programs provide the highest level of personal service and give you our 100% undivided attention.</p>
+        <p>Private training tends to produce the best results and allows us to provide hands-on training and accountability with no interruptions and no distractions.</p>
+      </div>
+      <div class="service-card">
+        <h3>Small Group Personal Training</h3>
+        <p>Up to 3 people per session. Group warmup then individual goal-tailored workouts. Perfect for friends or family who want to train together while still receiving personalized attention.</p>
+        <p>Small group training combines the benefits of personal training with the motivation and fun of working out with others.</p>
+      </div>
+      <div class="service-card">
+        <h3>Online Coaching & Virtual Training</h3>
+        <p>Remote training via video/phone; flexible for busy schedules, with recorded programs. Perfect for those who travel frequently or prefer the convenience of training from home or their own gym.</p>
+        <p>Get the same expert guidance and accountability with the flexibility to train anywhere, anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="section-header">
+      <h2>Training Programs & Pricing</h2>
+      <p>Choose the package that fits your goals and schedule</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>1-on-1 Personal Training</h3>
+        <div class="price">$55</div>
+        <div class="price-detail">60-Minute Single Session</div>
+        <p>10-Session Package: $500 ($50/session)</p>
+        <p>20-Session Package: $900 ($45/session)</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Small Group Training</h3>
+        <div class="price">$105</div>
+        <div class="price-detail">60-Minute Single Session (Max. 3 Clients)</div>
+        <p>$35 per person</p>
+        <p>10-Session Package: $900 ($30/person)</p>
+        <p>20-Session Package: $1500 ($25/person)</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Online & Virtual Training</h3>
+        <div class="price">$48</div>
+        <div class="price-detail">60-Minute Single Session</div>
+        <p>10-Session Package: $420 ($42/session)</p>
+        <p>20-Session Package: $760 ($38/session)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <h2>Contact Me Today to Request your FREE Fitness Assessment</h2>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <h4>Location</h4>
+        <p>Coconut Creek, FL 33063</p>
+      </div>
+      <div class="contact-item">
+        <h4>Phone</h4>
+        <p>718-887-5723</p>
+      </div>
+      <div class="contact-item">
+        <h4>Hours</h4>
+        <p>Monday - Friday</p>
+        <p>9:00am - 5:00pm</p>
+      </div>
+    </div>
+    <a href="tel:718-887-5723" class="cta-button">Call Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 BFP Collective - Bernardi Fitness & Performance. All rights reserved.</p>
+  </footer>
+</body>
+</html>
