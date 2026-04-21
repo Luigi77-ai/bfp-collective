@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BFP Collective - Performance Training</title>
   <style>
     * {
@@ -43,12 +43,6 @@
 
     a {
       text-decoration: none;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
     }
 
     .top-bar {
@@ -389,14 +383,44 @@
       line-height: 1.7;
     }
 
-    .pricing {
-      padding: 100px 2rem;
-      background: white;
-      text-align: center;
+    .video-band {
+      position: relative;
+      overflow: hidden;
+      background: #000;
     }
 
+    .video-band-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .video-band-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.58);
+      z-index: 2;
+    }
+
+    .video-band-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .pricing {
+      padding: 100px 2rem;
+      background: transparent;
+      text-align: center;
+      color: white;
+    }
+
+    .pricing .section-label,
+    .pricing .section-title,
     .pricing .section-text {
-      color: #4B5563;
+      color: white;
     }
 
     .pricing-grid {
@@ -408,17 +432,20 @@
     }
 
     .pricing-card {
-      background: var(--dark-bg);
+      background: rgba(17, 24, 39, 0.82);
       color: white;
       padding: 2.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
       border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
     }
 
     .pricing-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
     }
 
     .pricing-card h3 {
@@ -447,17 +474,19 @@
 
     .pricing-card li {
       padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       color: #F3F4F6;
     }
 
     .faq {
-      background: #F9FAFB;
-      padding: 100px 2rem;
+      background: transparent;
+      padding: 0 2rem 100px;
     }
 
+    .faq .section-label,
+    .faq .section-title,
     .faq .section-text {
-      color: #4B5563;
+      color: white;
     }
 
     .faq-list {
@@ -468,20 +497,23 @@
     }
 
     .faq-item {
-      background: white;
+      background: rgba(17, 24, 39, 0.78);
       border-left: 4px solid var(--primary-red);
       padding: 1.5rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
     }
 
     .faq-item h3 {
-      color: #111827;
+      color: #ffffff;
       font-size: 1.15rem;
       margin-bottom: 0.75rem;
     }
 
     .faq-item p {
-      color: #4B5563;
+      color: #E5E7EB;
       line-height: 1.8;
     }
 
@@ -530,6 +562,7 @@
       margin-bottom: 1.5rem;
       font-size: 1.4rem;
       text-transform: uppercase;
+      color: white;
     }
 
     .form-group {
@@ -628,8 +661,7 @@
         padding: 1rem 0;
       }
 
-      .nav-container,
-      .container {
+      .nav-container {
         padding: 0 1.25rem;
       }
 
@@ -668,9 +700,12 @@
       .benefits,
       .services,
       .pricing,
-      .faq,
       .contact {
         padding: 80px 1.25rem;
+      }
+
+      .faq {
+        padding: 0 1.25rem 80px;
       }
 
       .section-title,
@@ -694,7 +729,7 @@
   <nav>
     <div class="nav-container">
       <a href="#home" class="logo">
-        <img src="./2.jpg" alt="BFP Collective logo">
+        <img src="./2.jpg" alt="BFP Collective logo" />
       </a>
 
       <ul class="nav-links">
@@ -710,7 +745,7 @@
 
   <section class="hero" id="home">
     <video class="hero-video" autoplay muted loop playsinline>
-      <source src="./6053511-hd_1920_1080_25fps.mp4" type="video/mp4">
+      <source src="./6053511-hd_1920_1080_25fps.mp4" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
 
@@ -720,7 +755,9 @@
       <h2>Train With Purpose</h2>
       <h1>Elite Performance Training</h1>
       <p>
-        From strength training and conditioning to nutrition support and weight loss guidance, we build personalized coaching plans that help you perform better, feel stronger, and move closer to your goals.
+        From strength training and conditioning to nutrition support and weight loss guidance,
+        we build personalized coaching plans that help you perform better, feel stronger, and
+        move closer to your goals.
       </p>
       <div class="cta-buttons">
         <a href="#contact" class="cta-button">Get Started</a>
@@ -737,13 +774,20 @@
 
     <div class="about-copy">
       <p>
-        BFP Collective is built for people who want focused, results-driven training in a comfortable and well-equipped environment. Whether you are just getting started or looking to refine your current routine, we create a structured plan that fits your goals and experience level.
+        BFP Collective is built for people who want focused, results-driven training in a
+        comfortable and well-equipped environment. Whether you are just getting started or
+        looking to refine your current routine, we create a structured plan that fits your goals
+        and experience level.
       </p>
       <p>
-        Our coaching approach combines strength training, conditioning, nutrition support, and body composition guidance to help you improve performance, lose weight, and feel more confident in your routine.
+        Our coaching approach combines strength training, conditioning, nutrition support, and
+        body composition guidance to help you improve performance, lose weight, and feel more
+        confident in your routine.
       </p>
       <p>
-        We work with clients across different fitness levels and build practical, personalized programs designed to help you look better, feel better, and perform at a higher level over time.
+        We work with clients across different fitness levels and build practical, personalized
+        programs designed to help you look better, feel better, and perform at a higher level
+        over time.
       </p>
       <a href="#contact" class="cta-button">Request Your Free Fitness Assessment</a>
     </div>
@@ -754,7 +798,8 @@
       <div class="section-label">Training Environment</div>
       <h2 class="section-title" style="color: white;">Yes, You Can Reach Your Fitness Goals</h2>
       <p class="section-text">
-        The right coaching, structure, and accountability can make a major difference in how fast and how safely you progress.
+        The right coaching, structure, and accountability can make a major difference in how fast
+        and how safely you progress.
       </p>
     </div>
 
@@ -772,7 +817,8 @@
       <div class="section-label">Why Work With a Trainer</div>
       <h2 class="section-title">3 Reasons to Hire a Personal Trainer</h2>
       <p class="section-text">
-        A knowledgeable coach can provide the structure, technique, and support needed to help you stay consistent and get better results.
+        A knowledgeable coach can provide the structure, technique, and support needed to help you
+        stay consistent and get better results.
       </p>
     </div>
 
@@ -781,7 +827,9 @@
         <div class="benefit-number">01</div>
         <h3>Accountability</h3>
         <p>
-          A personal trainer helps you stay committed to the process. From showing up consistently to completing your workouts and staying aligned with healthy habits, accountability helps turn goals into action.
+          A personal trainer helps you stay committed to the process. From showing up consistently
+          to completing your workouts and staying aligned with healthy habits, accountability helps
+          turn goals into action.
         </p>
       </div>
 
@@ -789,7 +837,9 @@
         <div class="benefit-number">02</div>
         <h3>Safety</h3>
         <p>
-          Proper form and exercise technique matter. Guided coaching helps reduce the risk of injury and ensures you are performing movements correctly so your training is both safe and effective.
+          Proper form and exercise technique matter. Guided coaching helps reduce the risk of
+          injury and ensures you are performing movements correctly so your training is both safe
+          and effective.
         </p>
       </div>
 
@@ -797,7 +847,9 @@
         <div class="benefit-number">03</div>
         <h3>Results</h3>
         <p>
-          Training without structure can lead to slow progress. A coach helps you train with purpose, apply the right intensity, and move toward your goals faster than trying to do everything alone.
+          Training without structure can lead to slow progress. A coach helps you train with
+          purpose, apply the right intensity, and move toward your goals faster than trying to do
+          everything alone.
         </p>
       </div>
     </div>
@@ -808,135 +860,154 @@
       <div class="section-label">Our Services</div>
       <h2 class="section-title">Training Designed Around Your Goals</h2>
       <p class="section-text">
-        Choose the training style that best fits your schedule, experience level, and performance objectives.
+        Choose the training style that best fits your schedule, experience level, and performance
+        objectives.
       </p>
     </div>
 
     <div class="services-grid">
-      <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80')">
+      <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80');">
         <div class="service-overlay">
           <div class="service-label">Training</div>
           <div class="service-title">1-on-1 Personal Training</div>
           <p>
-            Private coaching sessions tailored to your specific fitness goals, training level, movement needs, and long-term progress.
+            Private coaching sessions tailored to your specific fitness goals, training level,
+            movement needs, and long-term progress.
           </p>
         </div>
       </div>
 
-      <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=80')">
+      <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=80');">
         <div class="service-overlay">
           <div class="service-label">Training</div>
           <div class="service-title">Small Group Training</div>
           <p>
-            Train in a motivating group setting with friends or family while still receiving guidance, structure, and coaching support.
+            Train in a motivating group setting with friends or family while still receiving
+            guidance, structure, and coaching support.
           </p>
         </div>
       </div>
 
-      <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1434596922112-19c563067271?w=1200&q=80')">
+      <div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1434596922112-19c563067271?w=1200&q=80');">
         <div class="service-overlay">
           <div class="service-label">Training</div>
           <div class="service-title">Online & Virtual Coaching</div>
           <p>
-            Get professional coaching from anywhere with flexible scheduling, customized programming, and performance-focused support.
+            Get professional coaching from anywhere with flexible scheduling, customized
+            programming, and performance-focused support.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pricing" id="pricing">
-    <div class="section-intro">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">Programs & Pricing</h2>
-      <p class="section-text">
-        Choose the coaching option that best matches your needs, schedule, and training preferences.
-      </p>
-    </div>
+  <section class="video-band">
+    <video class="video-band-bg" autoplay muted loop playsinline>
+      <source src="./14541677_1080_1920_50fps.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="video-band-overlay"></div>
 
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>1-on-1 Personal Training</h3>
-        <div class="price">$55</div>
-        <p>60-Minute Single Session</p>
-        <ul>
-          <li>10-Session Package: $500</li>
-          <li>20-Session Package: $900</li>
-          <li>Fully Personalized Attention</li>
-          <li>Custom Training Plans</li>
-        </ul>
-      </div>
+    <div class="video-band-content">
+      <section class="pricing" id="pricing">
+        <div class="section-intro">
+          <div class="section-label">Pricing</div>
+          <h2 class="section-title">Programs & Pricing</h2>
+          <p class="section-text">
+            Choose the coaching option that best matches your needs, schedule, and training
+            preferences.
+          </p>
+        </div>
 
-      <div class="pricing-card">
-        <h3>Small Group Training</h3>
-        <div class="price">$105</div>
-        <p>60-Minute Session (Max. 3 People)</p>
-        <ul>
-          <li>$35 Per Person</li>
-          <li>10-Session Package: $900</li>
-          <li>20-Session Package: $1500</li>
-          <li>Ideal for Friends or Family</li>
-        </ul>
-      </div>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>1-on-1 Personal Training</h3>
+            <div class="price">$55</div>
+            <p>60-Minute Single Session</p>
+            <ul>
+              <li>10-Session Package: $500</li>
+              <li>20-Session Package: $900</li>
+              <li>Fully Personalized Attention</li>
+              <li>Custom Training Plans</li>
+            </ul>
+          </div>
 
-      <div class="pricing-card">
-        <h3>Online & Virtual Coaching</h3>
-        <div class="price">$48</div>
-        <p>60-Minute Session</p>
-        <ul>
-          <li>10-Session Package: $420</li>
-          <li>20-Session Package: $760</li>
-          <li>Train From Anywhere</li>
-          <li>Flexible Scheduling</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+          <div class="pricing-card">
+            <h3>Small Group Training</h3>
+            <div class="price">$105</div>
+            <p>60-Minute Session (Max. 3 People)</p>
+            <ul>
+              <li>$35 Per Person</li>
+              <li>10-Session Package: $900</li>
+              <li>20-Session Package: $1500</li>
+              <li>Ideal for Friends or Family</li>
+            </ul>
+          </div>
 
-  <section class="faq" id="faqs">
-    <div class="section-intro">
-      <div class="section-label">FAQs</div>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-text">
-        Here are some common questions from new and returning clients.
-      </p>
-    </div>
+          <div class="pricing-card">
+            <h3>Online & Virtual Coaching</h3>
+            <div class="price">$48</div>
+            <p>60-Minute Session</p>
+            <ul>
+              <li>10-Session Package: $420</li>
+              <li>20-Session Package: $760</li>
+              <li>Train From Anywhere</li>
+              <li>Flexible Scheduling</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>1. How often should I work with a personal trainer?</h3>
-        <p>
-          It depends on your schedule, current fitness level, and goals. For stronger results and better consistency, we generally recommend training at least three times per week.
-        </p>
-      </div>
+      <section class="faq" id="faqs">
+        <div class="section-intro">
+          <div class="section-label">FAQs</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-text">
+            Here are some common questions from new and returning clients.
+          </p>
+        </div>
 
-      <div class="faq-item">
-        <h3>2. Do I need to already be in shape before I start?</h3>
-        <p>
-          Not at all. We work with clients across a wide range of fitness levels and create programs that meet you where you are right now.
-        </p>
-      </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>1. How often should I work with a personal trainer?</h3>
+            <p>
+              It depends on your schedule, current fitness level, and goals. For stronger results
+              and better consistency, we generally recommend training at least three times per week.
+            </p>
+          </div>
 
-      <div class="faq-item">
-        <h3>3. What should I eat before a workout?</h3>
-        <p>
-          A light meal or snack with protein and carbohydrates is usually a good option. Staying hydrated before, during, and after your session is also important.
-        </p>
-      </div>
+          <div class="faq-item">
+            <h3>2. Do I need to already be in shape before I start?</h3>
+            <p>
+              Not at all. We work with clients across a wide range of fitness levels and create
+              programs that meet you where you are right now.
+            </p>
+          </div>
 
-      <div class="faq-item">
-        <h3>4. What types of payment do you accept?</h3>
-        <p>
-          We accept cash, checks, and credit cards for training sessions and packages.
-        </p>
-      </div>
+          <div class="faq-item">
+            <h3>3. What should I eat before a workout?</h3>
+            <p>
+              A light meal or snack with protein and carbohydrates is usually a good option.
+              Staying hydrated before, during, and after your session is also important.
+            </p>
+          </div>
 
-      <div class="faq-item">
-        <h3>5. Can I cancel a training session?</h3>
-        <p>
-          Yes. We ask that you provide at least 24 hours notice if you need to cancel or reschedule your session.
-        </p>
-      </div>
+          <div class="faq-item">
+            <h3>4. What types of payment do you accept?</h3>
+            <p>
+              We accept cash, checks, and credit cards for training sessions and packages.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>5. Can I cancel a training session?</h3>
+            <p>
+              Yes. We ask that you provide at least 24 hours notice if you need to cancel or
+              reschedule your session.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -974,13 +1045,13 @@
         <h3>Send a Message</h3>
         <form>
           <div class="form-group">
-            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Full Name" />
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Email Address">
+            <input type="email" placeholder="Email Address" />
           </div>
           <div class="form-group">
-            <input type="tel" placeholder="Phone Number">
+            <input type="tel" placeholder="Phone Number" />
           </div>
           <div class="form-group">
             <textarea placeholder="Tell us about your goals"></textarea>
@@ -996,7 +1067,8 @@
       <div class="footer-col">
         <h4>Bernardi Fitness & Performance</h4>
         <p>
-          Personalized coaching focused on strength, conditioning, nutrition support, and long-term fitness progress.
+          Personalized coaching focused on strength, conditioning, nutrition support, and
+          long-term fitness progress.
         </p>
       </div>
 
