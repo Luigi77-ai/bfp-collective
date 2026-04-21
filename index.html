@@ -236,6 +236,40 @@
       color: #e5e7eb;
     }
 
+    .values-ticker {
+      background: #0b0f17;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      padding: 0.8rem 0;
+    }
+
+    .values-track {
+      display: flex;
+      width: max-content;
+      animation: scrollTicker 28s linear infinite;
+    }
+
+    .values-track span {
+      color: #f3f4f6;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-right: 2.5rem;
+    }
+
+    .values-track .dot {
+      color: var(--primary-red);
+      margin-right: 2.5rem;
+    }
+
+    @keyframes scrollTicker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     .about {
       position: relative;
       overflow: hidden;
@@ -420,40 +454,6 @@
       font-size: 0.98rem;
       line-height: 1.75;
       max-width: 32ch;
-    }
-
-    .values-ticker {
-      background: #0b0f17;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-      padding: 0.8rem 0;
-    }
-
-    .values-track {
-      display: flex;
-      width: max-content;
-      animation: scrollTicker 28s linear infinite;
-    }
-
-    .values-track span {
-      color: #f3f4f6;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      white-space: nowrap;
-      margin-right: 2.5rem;
-    }
-
-    .values-track .dot {
-      color: var(--primary-red);
-      margin-right: 2.5rem;
-    }
-
-    @keyframes scrollTicker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
 
     .pricing-faq {
@@ -890,6 +890,27 @@
       </div>
     </div>
   </section>
+
+  <div class="values-ticker" aria-label="Gym values">
+    <div class="values-track">
+      <span>Strength</span><span class="dot">•</span>
+      <span>Discipline</span><span class="dot">•</span>
+      <span>Performance</span><span class="dot">•</span>
+      <span>Consistency</span><span class="dot">•</span>
+      <span>Confidence</span><span class="dot">•</span>
+      <span>Recovery</span><span class="dot">•</span>
+      <span>Mindset</span><span class="dot">•</span>
+      <span>Results</span><span class="dot">•</span>
+      <span>Strength</span><span class="dot">•</span>
+      <span>Discipline</span><span class="dot">•</span>
+      <span>Performance</span><span class="dot">•</span>
+      <span>Consistency</span><span class="dot">•</span>
+      <span>Confidence</span><span class="dot">•</span>
+      <span>Recovery</span><span class="dot">•</span>
+      <span>Mindset</span><span class="dot">•</span>
+      <span>Results</span><span class="dot">•</span>
+    </div>
+  </div>
 
   <section class="about" id="about">
     <div class="about-copy">
