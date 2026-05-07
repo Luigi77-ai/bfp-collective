@@ -756,15 +756,29 @@
 
     .inline-mail-link,
     .action-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .9rem 1.15rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,.9);
+      background: transparent;
       color: #fff;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
       cursor: pointer;
-      transition: color .25s ease, transform .25s ease;
+      transition: all .25s ease;
+      box-shadow: none;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .inline-mail-link:hover,
     .action-link:hover {
-      color: var(--accent-soft);
+      background: #fff;
+      color: #111827;
+      transform: translateY(-2px);
     }
 
     .contact-section {
@@ -1094,7 +1108,7 @@
 
       <div class="cta-buttons">
         <button type="button" class="cta-button" data-open-contact="book-session">Book a Session</button>
-        <button type="button" class="cta-button secondary" data-open-contact="membership">Apply for Membership</button>
+        <a href="#membership" class="cta-button secondary">Apply for Membership</a>
       </div>
     </div>
   </section>
@@ -1461,8 +1475,8 @@
           <ul>
             <li>Personalized training plan</li>
             <li>Weekly updates + adjustments</li>
-            <li>Video/form review</li>
             <li>Messaging support</li>
+            <li>Video/form review</li>
             <li>Progress tracking</li>
           </ul>
         </div>
@@ -1470,77 +1484,53 @@
 
       <div class="subsection-head" style="margin-top: 3.2rem;">
         <h3>Booking & Policy</h3>
-        <p>
-          Clear cancellation, attendance, guest, and travel details so expectations are simple from the beginning.
-        </p>
       </div>
 
       <div class="stack-grid">
         <div class="policy-card">
-          <h3>Scheduling, Credits & Attendance</h3>
           <ul>
-            <li>Sessions cancelled with at least 24-hour notice will receive a session credit for future use</li>
-            <li>Late cancellations (within 24 hours) and no-shows will result in the session being used</li>
-            <li>If BFP Collective cancels a session due to weather, emergency, or scheduling conflict, the session will be credited or rescheduled</li>
-            <li>Elite Members may bring 1 guest to group sessions</li>
-            <li>Non-members attending group sessions are $35 per athlete</li>
+            <li>Sessions cancelled with at least 24-hour notice will receive a session credit for future use.</li>
+            <li>Late cancellations (within 24 hours) and no-shows will result in the session being used.</li>
+            <li>If BFP Collective cancels a session due to weather, emergency, or scheduling conflict, the session will be credited or rescheduled.</li>
+            <li>Elite Members may bring 1 guest to group sessions. Non-members attending group sessions are $35 per athlete.</li>
+            <li>
+              <button type="button" class="inline-mail-link" data-open-contact="general-email">
+                Email for more information and scheduling.
+              </button>
+            </li>
           </ul>
         </div>
-
-        <div class="policy-card">
-          <h3>Location & Contact</h3>
-          <ul>
-            <li>Based in Coconut Creek, FL</li>
-            <li>Serving Broward County, Boca Raton, and surrounding areas</li>
-            <li>Travel available for sessions</li>
-            <li>Email: Brian@bfpcollective.com</li>
-            <li>Phone: 718-887-5723</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="note-strip">
-        <button type="button" class="inline-mail-link" data-open-contact="general-email">
-          Email for more information and scheduling.
-        </button>
       </div>
     </div>
   </section>
 
   <section class="contact-section section" id="contact">
     <div class="container">
-      <div class="section-intro">
-        <div class="section-label">Get Started</div>
-        <h2 class="section-title">Ready To Train With Structure And Purpose?</h2>
-        <p class="section-text">
-          Book a session, apply for membership, or contact BFP Collective for team training.
-        </p>
-      </div>
-
       <div class="contact-grid">
         <div class="contact-card">
-          <h3>Contact Information</h3>
-          <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a></li>
-            <li><strong>Phone:</strong> <a href="tel:17188875723">718-887-5723</a></li>
-            <li><strong>Location:</strong> Based in Coconut Creek, FL</li>
-            <li><strong>Coverage:</strong> Serving Broward County, Boca Raton, and surrounding areas</li>
-            <li><strong>Travel:</strong> Travel available for sessions</li>
+          <div class="section-label">Location & Contact</div>
+          <h2 class="section-title">Based In Coconut Creek, FL</h2>
+          <p>
+            Serving Broward County, Boca Raton, and surrounding areas. Travel available for sessions.
+          </p>
+
+          <ul class="contact-list" style="margin-top: 1rem;">
+            <li>Email: <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a></li>
+            <li>Phone: <a href="tel:7188875723">718-887-5723</a></li>
           </ul>
         </div>
 
         <div class="contact-card">
-          <h3>Get Started</h3>
-          <p>
-            Reach out for 1-on-1 training, group sessions, team training, adult fitness/HYROX, or online coaching. Share your goals, current level, preferred schedule, and whether you want to book a session or apply for membership.
-          </p>
+          <div class="section-label">Get Started</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: .4rem;">Ready to train with structure and purpose?</h3>
+          <p>Choose an option below to contact BFP Collective with a pre-filled inquiry.</p>
 
-          <div class="contact-action-list">
-            <button type="button" class="contact-action-button" data-open-contact="book-session">👉 Book a Session</button>
-            <button type="button" class="contact-action-button" data-open-contact="membership">👉 Apply for Membership</button>
-            <button type="button" class="contact-action-button" data-open-contact="team-training">👉 Contact for Team Training</button>
-            <button type="button" class="contact-action-button" data-open-contact="general-email">Email for more information and scheduling</button>
-          </div>
+          <ul class="contact-action-list">
+            <li><button type="button" class="contact-action-button" data-open-contact="book-session">👉 Book a Session</button></li>
+            <li><button type="button" class="contact-action-button" data-open-contact="membership">👉 Apply for Membership</button></li>
+            <li><button type="button" class="contact-action-button" data-open-contact="team-training">👉 Contact for Team Training</button></li>
+            <li><button type="button" class="contact-action-button" data-open-contact="general-email">Email for more information and scheduling</button></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1548,167 +1538,91 @@
 
   <a
     class="whatsapp-float"
-    href="https://wa.me/17188875723?text=Hi%20BFP%20Collective%2C%20I%27m%20interested%20in%20training.%20Can%20you%20share%20more%20information%3F"
+    href="https://wa.me/17188875723?text=Hi%20Brian%2C%20I%E2%80%99d%20like%20more%20information%20about%20training%20and%20scheduling%20with%20BFP%20Collective."
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat on WhatsApp"
-    title="Chat on WhatsApp"
   >
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M19.11 17.29c-.28-.14-1.65-.82-1.91-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.25-1.37-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.47-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-1 1-1 2.43s1.02 2.82 1.16 3.01c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.31.19 1.8.12.55-.08 1.65-.67 1.89-1.31.23-.64.23-1.19.16-1.31-.07-.12-.26-.19-.54-.33Z"/>
-      <path d="M16.04 3.2c-6.98 0-12.65 5.66-12.65 12.64 0 2.23.58 4.41 1.69 6.33L3.2 28.8l6.82-1.79a12.59 12.59 0 0 0 6.01 1.53h.01c6.97 0 12.64-5.67 12.64-12.65 0-3.38-1.31-6.56-3.7-8.95a12.54 12.54 0 0 0-8.94-3.74Zm0 23.2h-.01a10.48 10.48 0 0 1-5.34-1.46l-.38-.23-4.05 1.06 1.08-3.95-.25-.41a10.47 10.47 0 0 1-1.61-5.57c0-5.79 4.71-10.5 10.51-10.5 2.8 0 5.43 1.09 7.41 3.08a10.4 10.4 0 0 1 3.08 7.42c0 5.8-4.71 10.51-10.44 10.56Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19.05 4.94A9.94 9.94 0 0 0 12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.76.46 3.48 1.33 5L2 22l5.13-1.34A9.96 9.96 0 0 0 12.02 22C17.54 22 22 17.52 22 12c0-2.65-1.03-5.14-2.95-7.06zm-7.03 15.37a8.3 8.3 0 0 1-4.23-1.16l-.3-.18-3.04.8.81-2.97-.2-.31a8.28 8.28 0 0 1-1.27-4.43c0-4.57 3.72-8.29 8.3-8.29 2.22 0 4.31.86 5.88 2.43A8.25 8.25 0 0 1 20.3 12c0 4.58-3.72 8.31-8.28 8.31zm4.55-6.21c-.25-.13-1.5-.74-1.73-.82-.23-.08-.4-.13-.57.12-.16.25-.65.82-.79.99-.14.16-.29.19-.54.06-.25-.13-1.04-.38-1.99-1.21-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.12-.12.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.13-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.12.16 1.75 2.67 4.24 3.74.59.25 1.06.4 1.42.51.6.19 1.14.16 1.57.1.48-.07 1.5-.61 1.71-1.19.21-.58.21-1.08.14-1.19-.06-.11-.23-.18-.48-.31z"/>
     </svg>
   </a>
 
   <div class="contact-modal" id="contactModal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
       <div class="modal-top">
         <div class="modal-title">
-          <h3 id="modalTitle">Contact BFP Collective</h3>
-          <p id="modalSubtitle">Complete the form and choose how you want to contact the team.</p>
+          <h3 id="modalHeading">Contact BFP Collective</h3>
+          <p>Complete the fields below and choose how you want to contact Brian.</p>
         </div>
-        <button type="button" class="modal-close" id="closeModal" aria-label="Close contact form">×</button>
+        <button type="button" class="modal-close" id="closeModalBtn" aria-label="Close contact form">×</button>
       </div>
 
       <form id="contactForm">
         <div class="modal-grid">
           <div class="field">
-            <label for="leadName">Full Name</label>
-            <input type="text" id="leadName" name="leadName" placeholder="Your name">
+            <label for="clientName">Name</label>
+            <input type="text" id="clientName" placeholder="Your name" />
           </div>
 
           <div class="field">
-            <label for="leadEmail">Email</label>
-            <input type="email" id="leadEmail" name="leadEmail" placeholder="you@example.com">
+            <label for="clientEmail">Email</label>
+            <input type="email" id="clientEmail" placeholder="Your email" />
           </div>
 
           <div class="field">
-            <label for="leadPhone">Phone Number</label>
-            <input type="tel" id="leadPhone" name="leadPhone" placeholder="Your phone number">
+            <label for="clientPhone">Phone</label>
+            <input type="text" id="clientPhone" placeholder="Your phone number" />
           </div>
 
           <div class="field">
-            <label for="leadAddress">City / Address</label>
-            <input type="text" id="leadAddress" name="leadAddress" placeholder="City, address, or area">
+            <label for="clientAddress">Address / Area</label>
+            <input type="text" id="clientAddress" placeholder="City, area, or address" />
           </div>
 
           <div class="field full">
-            <label for="leadInterest">Interest</label>
-            <input type="text" id="leadInterest" name="leadInterest" placeholder="Selected option">
-          </div>
-
-          <div class="field full">
-            <label for="leadMessage">Message</label>
-            <textarea id="leadMessage" name="leadMessage" placeholder="Your message"></textarea>
+            <label for="clientMessage">Message</label>
+            <textarea id="clientMessage"></textarea>
           </div>
         </div>
 
         <div class="modal-actions">
-          <button type="submit" class="modal-btn primary">Send Email</button>
-          <button type="button" class="modal-btn whatsapp" id="whatsAppSend">WhatsApp</button>
-          <a class="modal-btn secondary" id="callNowBtn" href="tel:17188875723">Call Now</a>
+          <button type="button" class="modal-btn primary" id="emailActionBtn">
+            Email
+          </button>
+
+          <button type="button" class="modal-btn whatsapp" id="whatsappActionBtn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="currentColor">
+              <path d="M19.05 4.94A9.94 9.94 0 0 0 12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.76.46 3.48 1.33 5L2 22l5.13-1.34A9.96 9.96 0 0 0 12.02 22C17.54 22 22 17.52 22 12c0-2.65-1.03-5.14-2.95-7.06zm-7.03 15.37a8.3 8.3 0 0 1-4.23-1.16l-.3-.18-3.04.8.81-2.97-.2-.31a8.28 8.28 0 0 1-1.27-4.43c0-4.57 3.72-8.29 8.3-8.29 2.22 0 4.31.86 5.88 2.43A8.25 8.25 0 0 1 20.3 12c0 4.58-3.72 8.31-8.28 8.31zm4.55-6.21c-.25-.13-1.5-.74-1.73-.82-.23-.08-.4-.13-.57.12-.16.25-.65.82-.79.99-.14.16-.29.19-.54.06-.25-.13-1.04-.38-1.99-1.21-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.12-.12.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.13-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.12.16 1.75 2.67 4.24 3.74.59.25 1.06.4 1.42.51.6.19 1.14.16 1.57.1.48-.07 1.5-.61 1.71-1.19.21-.58.21-1.08.14-1.19-.06-.11-.23-.18-.48-.31z"/>
+            </svg>
+            WhatsApp
+          </button>
+
+          <button type="button" class="modal-btn secondary" id="callActionBtn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8.03 9.97a16 16 0 0 0 6 6l1.52-1.26a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Call
+          </button>
         </div>
 
         <p class="helper-note">
-          Book a Session remains pending for the final appointment link, but this modal already lets the client contact BFP by email, WhatsApp, or phone with a prefilled template.
+          The message is editable, so the client can keep the template or change it before contacting BFP Collective.
         </p>
       </form>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 BFP Collective. All rights reserved.</p>
+    © 2026 BFP Collective. All rights reserved.
   </footer>
 
   <script>
-    const slides = document.querySelectorAll('.pricing-slide');
-    let currentSlide = 0;
-    if (slides.length > 0) {
-      setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }, 4500);
-    }
+    const BFP_EMAIL = "Brian@bfpcollective.com";
+    const BFP_PHONE = "17188875723";
+    const BFP_PHONE_DISPLAY = "718-887-5723";
 
-    const contactConfigs = {
-      "book-session": {
-        title: "Book a Session",
-        subtitle: "A booking link is still pending, so the client can contact BFP directly from here.",
-        interest: "Book a Session",
-        subject: "Book a Session Inquiry - BFP Collective",
-        message:
-`Hi Brian,
-
-I’m interested in booking a session with BFP Collective.
-
-My goals:
-My current level:
-Preferred training type:
-Preferred days/times:
-Preferred location:
-
-Name:
-Email:
-Phone:
-Address/Area:
-
-Thank you.`
-      },
-      "membership": {
-        title: "Apply for Membership",
-        subtitle: "Pre-filled message for membership interest.",
-        interest: "Apply for Membership",
-        subject: "Membership Inquiry - BFP Collective",
-        message:
-`Hi Brian,
-
-I’m interested in applying for a BFP Collective membership.
-
-Membership I’m interested in:
-My goals:
-My current level:
-Preferred schedule:
-Questions I have:
-
-Name:
-Email:
-Phone:
-Address/Area:
-
-Thank you.`
-      },
-      "team-training": {
-        title: "Contact for Team Training",
-        subtitle: "Pre-filled message for team training inquiries.",
-        interest: "Contact for Team Training",
-        subject: "Team Training Inquiry - BFP Collective",
-        message:
-`Hi Brian,
-
-I’m interested in team training with BFP Collective.
-
-Team / organization:
-Number of athletes:
-Age group / level:
-Preferred location:
-Preferred dates or schedule:
-Anything else we should know:
-
-Name:
-Email:
-Phone:
-Address/Area:
-
-Thank you.`
-      },
-      "general-email": {
-        title: "Email for More Information",
-        subtitle: "General inquiry template for questions and scheduling.",
-        interest: "General Inquiry",
-        subject: "General Inquiry - BFP Collective",
-        message:
-`Hi Brian,
+    const defaultTemplate = `Hi Brian,
 
 I’d like more information about training and scheduling with BFP Collective.
 
@@ -1718,107 +1632,131 @@ Preferred training format:
 Preferred schedule:
 Questions:
 
-Name:
-Email:
-Phone:
-Address/Area:
 
-Thank you.`
+Thank you.`;
+
+    const inquiryTemplates = {
+      "book-session": {
+        title: "Book a Session",
+        subject: "Book a Session - BFP Collective",
+        message: defaultTemplate
+      },
+      "membership": {
+        title: "Apply for Membership",
+        subject: "Membership Inquiry - BFP Collective",
+        message: defaultTemplate
+      },
+      "general-email": {
+        title: "Training Inquiry",
+        subject: "Training Inquiry - BFP Collective",
+        message: defaultTemplate
+      },
+      "team-training": {
+        title: "Team Training Inquiry",
+        subject: "Team Training Inquiry - BFP Collective",
+        message: defaultTemplate
+      },
+      "online-coaching": {
+        title: "Online Coaching Inquiry",
+        subject: "Online Coaching Inquiry - BFP Collective",
+        message: defaultTemplate
+      },
+      "adult-hyrox": {
+        title: "Adult Fitness / HYROX Inquiry",
+        subject: "Adult Fitness / HYROX Inquiry - BFP Collective",
+        message: defaultTemplate
+      },
+      "basketball-training": {
+        title: "Basketball Training Inquiry",
+        subject: "Basketball Training Inquiry - BFP Collective",
+        message: defaultTemplate
       }
     };
 
-    const businessEmail = "Brian@bfpcollective.com";
-    const businessPhone = "17188875723";
-
     const modal = document.getElementById("contactModal");
-    const closeModalBtn = document.getElementById("closeModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalSubtitle = document.getElementById("modalSubtitle");
-    const contactForm = document.getElementById("contactForm");
-    const leadName = document.getElementById("leadName");
-    const leadEmail = document.getElementById("leadEmail");
-    const leadPhone = document.getElementById("leadPhone");
-    const leadAddress = document.getElementById("leadAddress");
-    const leadInterest = document.getElementById("leadInterest");
-    const leadMessage = document.getElementById("leadMessage");
-    const whatsAppSend = document.getElementById("whatsAppSend");
+    const modalHeading = document.getElementById("modalHeading");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const emailActionBtn = document.getElementById("emailActionBtn");
+    const whatsappActionBtn = document.getElementById("whatsappActionBtn");
+    const callActionBtn = document.getElementById("callActionBtn");
 
-    let activeConfig = contactConfigs["general-email"];
+    const clientName = document.getElementById("clientName");
+    const clientEmail = document.getElementById("clientEmail");
+    const clientPhone = document.getElementById("clientPhone");
+    const clientAddress = document.getElementById("clientAddress");
+    const clientMessage = document.getElementById("clientMessage");
 
-    function openContactModal(type) {
-      activeConfig = contactConfigs[type] || contactConfigs["general-email"];
-      modalTitle.textContent = activeConfig.title;
-      modalSubtitle.textContent = activeConfig.subtitle;
-      leadInterest.value = activeConfig.interest;
-      leadMessage.value = activeConfig.message;
+    let activeInquiry = inquiryTemplates["general-email"];
+
+    function openModal(type) {
+      activeInquiry = inquiryTemplates[type] || inquiryTemplates["general-email"];
+      modalHeading.textContent = activeInquiry.title;
+      clientMessage.value = activeInquiry.message;
       modal.classList.add("active");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
-      setTimeout(() => leadName.focus(), 30);
     }
 
-    function closeContactModal() {
+    function closeModal() {
       modal.classList.remove("active");
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
-    function buildFinalMessage() {
-      const name = leadName.value.trim();
-      const email = leadEmail.value.trim();
-      const phone = leadPhone.value.trim();
-      const address = leadAddress.value.trim();
-      const interest = leadInterest.value.trim();
-      let message = leadMessage.value.trim();
+    function buildFullMessage() {
+      const details = [];
+      if (clientName.value.trim()) details.push("Name: " + clientName.value.trim());
+      if (clientEmail.value.trim()) details.push("Email: " + clientEmail.value.trim());
+      if (clientPhone.value.trim()) details.push("Phone: " + clientPhone.value.trim());
+      if (clientAddress.value.trim()) details.push("Address/Area: " + clientAddress.value.trim());
 
-      const extras = [
-        name ? `Name: ${name}` : "",
-        email ? `Email: ${email}` : "",
-        phone ? `Phone: ${phone}` : "",
-        address ? `Address/Area: ${address}` : "",
-        interest ? `Interest: ${interest}` : ""
-      ].filter(Boolean).join("\n");
-
-      if (extras) {
-        if (message) {
-          message += `\n\n${extras}`;
-        } else {
-          message = extras;
-        }
-      }
-
-      return message;
+      const infoBlock = details.length ? "\n\n" + details.join("\n") : "";
+      return (clientMessage.value || activeInquiry.message) + infoBlock;
     }
 
-    document.querySelectorAll("[data-open-contact]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        openContactModal(btn.getAttribute("data-open-contact"));
+    document.querySelectorAll("[data-open-contact]").forEach(button => {
+      button.addEventListener("click", () => {
+        openModal(button.getAttribute("data-open-contact"));
       });
     });
 
-    closeModalBtn.addEventListener("click", closeContactModal);
+    closeModalBtn.addEventListener("click", closeModal);
 
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeContactModal();
+      if (e.target === modal) closeModal();
     });
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeContactModal();
+        closeModal();
       }
     });
 
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const subject = encodeURIComponent(activeConfig.subject);
-      const body = encodeURIComponent(buildFinalMessage());
-      window.location.href = `mailto:${businessEmail}?subject=${subject}&body=${body}`;
+    emailActionBtn.addEventListener("click", () => {
+      const subject = encodeURIComponent(activeInquiry.subject);
+      const body = encodeURIComponent(buildFullMessage());
+      window.location.href = `mailto:${BFP_EMAIL}?subject=${subject}&body=${body}`;
     });
 
-    whatsAppSend.addEventListener("click", function () {
-      const text = encodeURIComponent(buildFinalMessage());
-      window.open(`https://wa.me/${businessPhone}?text=${text}`, "_blank", "noopener,noreferrer");
+    whatsappActionBtn.addEventListener("click", () => {
+      const message = encodeURIComponent(buildFullMessage());
+      window.open(`https://wa.me/${BFP_PHONE}?text=${message}`, "_blank", "noopener,noreferrer");
     });
+
+    callActionBtn.addEventListener("click", () => {
+      window.location.href = `tel:${BFP_PHONE}`;
+    });
+
+    const slides = document.querySelectorAll(".pricing-slide");
+    let slideIndex = 0;
+
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[slideIndex].classList.remove("active");
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add("active");
+      }, 5000);
+    }
   </script>
 </body>
 </html>
