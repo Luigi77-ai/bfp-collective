@@ -119,8 +119,9 @@
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 1020px;
-      padding-top: 6.8rem;
+      max-width: 1100px;
+      width: 100%;
+      padding-top: 7.2rem;
     }
 
     .hero-kicker {
@@ -128,35 +129,45 @@
       font-size: .95rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: .8rem;
+      margin-bottom: 1.1rem;
       text-shadow: 0 3px 12px rgba(0,0,0,.45);
     }
 
-    .hero-meta-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem;
-      justify-content: center;
-      margin-bottom: 1.2rem;
+    .hero-marquee {
+      width: 100%;
+      overflow: hidden;
+      margin: 0 auto 1.25rem;
+      white-space: nowrap;
+      position: relative;
     }
 
-    .hero-meta {
-      color: #f3f4f6;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 999px;
-      padding: .55rem .95rem;
-      font-size: .9rem;
-      font-weight: 700;
-      letter-spacing: .8px;
+    .hero-marquee-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      width: max-content;
+      animation: heroMarquee 24s linear infinite;
+      padding-left: 100%;
+    }
+
+    .hero-marquee-track span {
+      color: #fff;
+      font-size: .96rem;
+      font-weight: 800;
       text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0,0,0,.35);
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      flex: 0 0 auto;
+    }
+
+    @keyframes heroMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
 
     .hero h1 {
-      color: #fff;
+      position: relative;
+      color: rgba(255,255,255,.92);
       font-size: 4.8rem;
       line-height: 1.02;
       font-weight: 900;
@@ -164,6 +175,35 @@
       letter-spacing: 1px;
       margin-bottom: 1rem;
       text-shadow: 0 5px 24px rgba(0,0,0,.45);
+      overflow: hidden;
+    }
+
+    .hero h1::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -35%;
+      width: 24%;
+      height: 150%;
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,.08) 20%,
+        rgba(255,255,255,.45) 50%,
+        rgba(255,255,255,.08) 80%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-22deg);
+      filter: blur(3px);
+      animation: titleShine 4.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes titleShine {
+      0% { left: -35%; opacity: 0; }
+      12% { opacity: 1; }
+      45% { left: 112%; opacity: 1; }
+      100% { left: 112%; opacity: 0; }
     }
 
     .hero p {
@@ -179,7 +219,7 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: .85rem;
+      margin-bottom: .2rem;
     }
 
     .cta-button {
@@ -215,23 +255,6 @@
       background: #fff;
       color: #111827;
     }
-
-    .hero-link-row {
-      display: flex;
-      justify-content: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-      margin-top: .65rem;
-    }
-
-    .hero-link-row a {
-      color: #fff;
-      font-weight: 700;
-      text-shadow: 0 2px 10px rgba(0,0,0,.45);
-      font-size: .98rem;
-    }
-
-    .hero-link-row a:hover { color: var(--accent-soft); }
 
     .ticker {
       background: #0b0f17;
@@ -326,8 +349,30 @@
       font-weight: 700;
     }
 
+    .about-section {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .about-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(8,20,40,.78), rgba(8,20,40,.82)),
+        url('./Photo Apr 09 2026, 9 41 20 PM (10).jpg') center/cover no-repeat;
+      filter: blur(3px);
+      transform: scale(1.04);
+      z-index: 0;
+    }
+
+    .about-section .container {
+      position: relative;
+      z-index: 2;
+    }
+
     .about-copy {
-      max-width: 1040px;
+      max-width: 1180px;
       margin: 0 auto;
       text-align: center;
     }
@@ -351,12 +396,12 @@
     }
 
     .credentials-grid {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       margin-top: 2rem;
     }
 
     .cards-grid {
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .stack-grid {
@@ -374,7 +419,8 @@
     }
 
     .services-grid {
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 1.7rem;
     }
 
     .credential-card,
@@ -462,8 +508,8 @@
     .impact-banner {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(10,15,24,.98) 0%, rgba(14,20,31,.98) 100%);
-      padding: 1.25rem 0 2.1rem;
+      background: linear-gradient(90deg, #070b13 0%, #0b1220 48%, #09111d 100%);
+      padding: 1.5rem 0 1.7rem;
       margin-top: -18px;
       margin-bottom: -10px;
     }
@@ -471,17 +517,34 @@
     .impact-banner::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(220,38,38,.12), transparent 42%);
-      filter: blur(30px);
+      top: 0;
+      left: -18%;
+      width: 22%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,.06) 25%,
+        rgba(255,255,255,.24) 50%,
+        rgba(255,255,255,.06) 75%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      filter: blur(6px);
+      animation: impactShine 6s linear infinite;
       pointer-events: none;
+    }
+
+    @keyframes impactShine {
+      0% { left: -25%; }
+      100% { left: 120%; }
     }
 
     .impact-text {
       position: relative;
       z-index: 2;
       text-align: center;
-      color: rgba(255,255,255,.14);
+      color: rgba(255,255,255,.18);
       font-size: clamp(2.1rem, 7vw, 5.7rem);
       font-weight: 900;
       line-height: .95;
@@ -490,7 +553,9 @@
       padding: 0 1rem;
     }
 
-    .impact-text .accent { color: rgba(220,38,38,.25); }
+    .impact-text .accent {
+      color: rgba(220,38,38,.32);
+    }
 
     .info-card {
       position: relative;
@@ -536,6 +601,18 @@
       inset: 0;
       z-index: 1;
       background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.20) 28%, rgba(0,0,0,.84) 100%);
+    }
+
+    .service-item.left-blur::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(8,15,28,.88) 0%, rgba(8,15,28,.62) 22%, rgba(8,15,28,.12) 54%, rgba(8,15,28,0) 72%);
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+      pointer-events: none;
     }
 
     .service-overlay {
@@ -681,9 +758,15 @@
       font-size: .95rem;
     }
 
+    @media (max-width: 1200px) {
+      .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 992px) {
       .hero h1 { font-size: 3.4rem; }
       .contact-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -696,16 +779,17 @@
       .section-title { font-size: 2rem; }
       .subsection-head h3 { font-size: 1.5rem; }
       .pricing-content, .section { padding-left: 1rem; padding-right: 1rem; }
-      .hero-meta-wrap { gap: .55rem; }
+      .credentials-grid,
+      .cards-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
       .cta-buttons { flex-direction: column; width: 100%; }
       .cta-button { width: 100%; min-width: unset; }
-      .hero-link-row { flex-direction: column; gap: .55rem; }
       .section-title { font-size: 1.7rem; }
       .price-value { font-size: 2.35rem; }
       .credential-card, .info-card, .policy-card, .price-card, .contact-card { padding: 1.3rem; }
+      .hero-marquee-track span { font-size: .88rem; }
     }
   </style>
 </head>
@@ -737,19 +821,25 @@
     <div class="hero-content">
       <div class="hero-kicker">BFP Collective</div>
 
-      <div class="hero-meta-wrap">
-        <span class="hero-meta">Basketball Training</span>
-        <span class="hero-meta">Performance Coaching</span>
-        <span class="hero-meta">Personal Training</span>
-      </div>
-
-      <div class="hero-meta-wrap">
-        <span class="hero-meta">Coconut Creek, FL</span>
-        <span class="hero-meta">Broward County</span>
-        <span class="hero-meta">In-Person & Online Coaching Available</span>
+      <div class="hero-marquee" aria-label="BFP header highlights">
+        <div class="hero-marquee-track">
+          <span>Basketball Training</span>
+          <span>Performance Coaching</span>
+          <span>Personal Training</span>
+          <span>Coconut Creek, FL</span>
+          <span>Broward County</span>
+          <span>In-Person & Online Coaching Available</span>
+          <span>Basketball Training</span>
+          <span>Performance Coaching</span>
+          <span>Personal Training</span>
+          <span>Coconut Creek, FL</span>
+          <span>Broward County</span>
+          <span>In-Person & Online Coaching Available</span>
+        </div>
       </div>
 
       <h1>Train With Intent. Track Progress. Adjust When Needed.</h1>
+
       <p>
         No random workouts. No guesswork. Just structured training built for real progress.
       </p>
@@ -757,11 +847,6 @@
       <div class="cta-buttons">
         <a href="#contact" class="cta-button">Book a Session</a>
         <a href="#membership" class="cta-button secondary">Apply for Membership</a>
-      </div>
-
-      <div class="hero-link-row">
-        <a href="#contact">👉 Book a Session</a>
-        <a href="#membership">👉 Apply for Membership</a>
       </div>
     </div>
   </section>
@@ -783,7 +868,7 @@
     </div>
   </div>
 
-  <section class="dark-section section" id="about">
+  <section class="dark-section section about-section" id="about">
     <div class="container about-copy">
       <div class="section-intro">
         <div class="section-label">About</div>
@@ -918,7 +1003,7 @@
       </div>
 
       <div class="services-grid">
-        <article class="service-item" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (9).jpg');">
+        <article class="service-item left-blur" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (9).jpg');">
           <div class="service-overlay">
             <div class="service-label">Basketball Training (All Levels)</div>
             <h3 class="service-title">For Athletes Serious About Improving Skill, Performance, And Understanding The Game</h3>
@@ -937,7 +1022,7 @@
           </div>
         </article>
 
-        <article class="service-item" style="background-image:url('./Photo Mar 27 2026, 10 11 54 AM.jpg');">
+        <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 10 11 54 AM.jpg');">
           <div class="service-overlay">
             <div class="service-label">Athletic Performance Training</div>
             <h3 class="service-title">For Athletes Who Want To Improve Strength, Speed, And Overall Performance</h3>
@@ -951,7 +1036,7 @@
           </div>
         </article>
 
-        <article class="service-item" style="background-image:url('./Photo Mar 27 2026, 11 22 34 AM.jpg');">
+        <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 11 22 34 AM.jpg');">
           <div class="service-overlay">
             <div class="service-label">Adult Fitness & HYROX Training (In-Person)</div>
             <h3 class="service-title">Private 1-On-1 Coaching For Fitness And Performance</h3>
@@ -966,7 +1051,7 @@
           </div>
         </article>
 
-        <article class="service-item" style="background-image:url('./Photo Mar 27 2026, 10 32 40 AM.jpg');">
+        <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 10 32 40 AM.jpg');">
           <div class="service-overlay">
             <div class="service-label">Online Coaching (Basketball, General Fitness & HYROX)</div>
             <h3 class="service-title">Structured Remote Coaching System</h3>
