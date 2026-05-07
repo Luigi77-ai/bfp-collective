@@ -134,9 +134,11 @@
     }
 
     .hero-marquee {
-      width: 100%;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       overflow: hidden;
-      margin: 0 auto 1.25rem;
+      margin-bottom: 1.25rem;
       white-space: nowrap;
       position: relative;
     }
@@ -144,10 +146,11 @@
     .hero-marquee-track {
       display: inline-flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.4rem;
       width: max-content;
-      animation: heroMarquee 24s linear infinite;
-      padding-left: 100%;
+      min-width: max-content;
+      animation: heroMarqueeFull 24s linear infinite;
+      padding-left: 0;
     }
 
     .hero-marquee-track span {
@@ -160,14 +163,15 @@
       flex: 0 0 auto;
     }
 
-    @keyframes heroMarquee {
-      0% { transform: translateX(0); }
+    @keyframes heroMarqueeFull {
+      0% { transform: translateX(100vw); }
       100% { transform: translateX(-100%); }
     }
 
     .hero h1 {
       position: relative;
-      color: rgba(255,255,255,.92);
+      display: inline-block;
+      color: #ffffff;
       font-size: 4.8rem;
       line-height: 1.02;
       font-weight: 900;
@@ -175,35 +179,27 @@
       letter-spacing: 1px;
       margin-bottom: 1rem;
       text-shadow: 0 5px 24px rgba(0,0,0,.45);
-      overflow: hidden;
-    }
-
-    .hero h1::after {
-      content: "";
-      position: absolute;
-      top: -20%;
-      left: -35%;
-      width: 24%;
-      height: 150%;
       background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,.08) 20%,
+        110deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,.98) 44%,
         rgba(255,255,255,.45) 50%,
-        rgba(255,255,255,.08) 80%,
-        rgba(255,255,255,0) 100%
+        rgba(255,255,255,.98) 56%,
+        rgba(255,255,255,1) 62%,
+        rgba(255,255,255,1) 100%
       );
-      transform: skewX(-22deg);
-      filter: blur(3px);
-      animation: titleShine 4.8s ease-in-out infinite;
-      pointer-events: none;
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShineLetters 4.8s ease-in-out infinite;
     }
 
-    @keyframes titleShine {
-      0% { left: -35%; opacity: 0; }
-      12% { opacity: 1; }
-      45% { left: 112%; opacity: 1; }
-      100% { left: 112%; opacity: 0; }
+    @keyframes textShineLetters {
+      0%   { background-position: 140% center; }
+      100% { background-position: -40% center; }
     }
 
     .hero p {
@@ -512,49 +508,59 @@
       padding: 1.5rem 0 1.7rem;
       margin-top: -18px;
       margin-bottom: -10px;
-    }
-
-    .impact-banner::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -18%;
-      width: 22%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,.06) 25%,
-        rgba(255,255,255,.24) 50%,
-        rgba(255,255,255,.06) 75%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: skewX(-20deg);
-      filter: blur(6px);
-      animation: impactShine 6s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes impactShine {
-      0% { left: -25%; }
-      100% { left: 120%; }
+      border-top: 2px solid var(--primary-red);
+      border-bottom: 2px solid var(--primary-red);
     }
 
     .impact-text {
       position: relative;
       z-index: 2;
       text-align: center;
-      color: rgba(255,255,255,.18);
+      color: #ffffff;
       font-size: clamp(2.1rem, 7vw, 5.7rem);
       font-weight: 900;
       line-height: .95;
       letter-spacing: .08em;
       text-transform: uppercase;
       padding: 0 1rem;
+      background: linear-gradient(
+        110deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,.98) 44%,
+        rgba(255,255,255,.4) 50%,
+        rgba(255,255,255,.98) 56%,
+        rgba(255,255,255,1) 62%,
+        rgba(255,255,255,1) 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: impactTextShine 5.2s ease-in-out infinite;
     }
 
     .impact-text .accent {
-      color: rgba(220,38,38,.32);
+      background: linear-gradient(
+        110deg,
+        #dc2626 0%,
+        #dc2626 38%,
+        #f87171 50%,
+        #dc2626 62%,
+        #dc2626 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: impactTextShine 5.2s ease-in-out infinite;
+    }
+
+    @keyframes impactTextShine {
+      0%   { background-position: 140% center; }
+      100% { background-position: -40% center; }
     }
 
     .info-card {
