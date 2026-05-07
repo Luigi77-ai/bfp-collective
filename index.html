@@ -10,16 +10,20 @@
     :root {
       --primary-red: #dc2626;
       --primary-red-dark: #b91c1c;
-      --dark-bg: #111827;
-      --dark-bg-2: #0b1220;
-      --panel: rgba(255, 255, 255, 0.07);
-      --panel-strong: rgba(17, 24, 39, 0.55);
-      --border: rgba(255, 255, 255, 0.12);
+      --dark-bg: #0b1220;
+      --dark-surface: #111827;
+      --panel: rgba(255,255,255,.07);
+      --panel-strong: rgba(17,24,39,.58);
+      --panel-soft: rgba(255,255,255,.05);
+      --border: rgba(255,255,255,.12);
+      --border-soft: rgba(255,255,255,.08);
       --text: #f3f4f6;
       --muted: #d1d5db;
       --soft: #9ca3af;
-      --shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+      --accent-soft: #fca5a5;
+      --shadow: 0 18px 40px rgba(0,0,0,.28);
       --radius: 18px;
+      --radius-sm: 14px;
       --max: 1240px;
     }
 
@@ -28,7 +32,7 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #fff;
-      color: #1f2937;
+      color: #111827;
       line-height: 1.6;
     }
 
@@ -41,7 +45,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      padding: 1.2rem 0;
+      padding: 1.15rem 0;
       background: transparent;
     }
 
@@ -65,7 +69,8 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.8rem;
+      align-items: center;
+      gap: 1.7rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -75,9 +80,10 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: .95rem;
+      font-size: .94rem;
       text-shadow: 0 2px 10px rgba(0,0,0,.45);
       transition: color .3s ease;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--primary-red); }
@@ -88,8 +94,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem;
       overflow: hidden;
       background: #000;
     }
@@ -106,15 +112,15 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.42) 45%, rgba(0,0,0,.74) 100%);
       z-index: 2;
+      background: linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.44) 48%, rgba(0,0,0,.78) 100%);
     }
 
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 980px;
-      padding-top: 6.7rem;
+      max-width: 1020px;
+      padding-top: 6.8rem;
     }
 
     .hero-kicker {
@@ -122,57 +128,75 @@
       font-size: .95rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: .95rem;
+      margin-bottom: .8rem;
       text-shadow: 0 3px 12px rgba(0,0,0,.45);
     }
 
+    .hero-meta-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
     .hero-meta {
-      color: #e5e7eb;
-      font-size: 1rem;
+      color: #f3f4f6;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 999px;
+      padding: .55rem .95rem;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .8px;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 12px rgba(0,0,0,.4);
+      text-shadow: 0 2px 10px rgba(0,0,0,.35);
     }
 
     .hero h1 {
-      color: white;
-      font-size: 4.9rem;
+      color: #fff;
+      font-size: 4.8rem;
       line-height: 1.02;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
       text-shadow: 0 5px 24px rgba(0,0,0,.45);
     }
 
     .hero p {
       color: #f3f4f6;
       font-size: 1.08rem;
-      max-width: 840px;
+      max-width: 780px;
       margin: 0 auto 2rem;
       text-shadow: 0 2px 12px rgba(0,0,0,.35);
     }
 
     .cta-buttons {
       display: flex;
-      gap: 1rem;
       justify-content: center;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
+      margin-bottom: .85rem;
     }
 
     .cta-button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+      padding: 1rem 2rem;
       background: var(--primary-red);
       color: #fff;
       border: 2px solid var(--primary-red);
-      padding: 1rem 2.2rem;
-      text-transform: uppercase;
+      border-radius: 999px;
       font-weight: 700;
+      text-transform: uppercase;
       letter-spacing: 1px;
       transition: all .3s ease;
-      box-shadow: 0 10px 25px rgba(220,38,38,.22);
+      box-shadow: 0 10px 25px rgba(220,38,38,.24);
     }
 
     .cta-button:hover {
@@ -183,39 +207,38 @@
 
     .cta-button.secondary {
       background: transparent;
-      border-color: white;
-      color: white;
+      border-color: #fff;
       box-shadow: none;
     }
 
     .cta-button.secondary:hover {
-      background: white;
+      background: #fff;
       color: #111827;
     }
 
     .hero-link-row {
       display: flex;
-      gap: 1.2rem;
       justify-content: center;
+      gap: 1.25rem;
       flex-wrap: wrap;
-      margin-top: .7rem;
+      margin-top: .65rem;
     }
 
     .hero-link-row a {
       color: #fff;
       font-weight: 700;
-      font-size: 1rem;
       text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      font-size: .98rem;
     }
 
-    .hero-link-row a:hover { color: #fca5a5; }
+    .hero-link-row a:hover { color: var(--accent-soft); }
 
     .ticker {
       background: #0b0f17;
       border-top: 1px solid rgba(255,255,255,.08);
       border-bottom: 1px solid rgba(255,255,255,.08);
       overflow: hidden;
-      padding: .8rem 0;
+      padding: .82rem 0;
     }
 
     .ticker-track {
@@ -228,7 +251,7 @@
       color: #f3f4f6;
       font-size: .92rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.15px;
       text-transform: uppercase;
       white-space: nowrap;
       margin-right: 2.2rem;
@@ -249,13 +272,11 @@
       overflow: hidden;
       color: white;
       background:
-        radial-gradient(circle at top center, rgba(220, 38, 38, 0.08), transparent 30%),
-        linear-gradient(180deg, rgba(8, 12, 18, 0.97) 0%, rgba(10, 15, 24, 0.99) 100%);
+        radial-gradient(circle at top center, rgba(220,38,38,.08), transparent 30%),
+        linear-gradient(180deg, rgba(8,12,18,.97) 0%, rgba(10,15,24,.99) 100%);
     }
 
-    .section {
-      padding: 100px 2rem;
-    }
+    .section { padding: 100px 2rem; }
 
     .container {
       max-width: var(--max);
@@ -263,7 +284,7 @@
     }
 
     .section-intro {
-      max-width: 860px;
+      max-width: 840px;
       margin: 0 auto 3rem;
       text-align: center;
     }
@@ -277,9 +298,9 @@
     }
 
     .section-title {
-      font-size: 2.8rem;
-      font-weight: 800;
+      font-size: 2.7rem;
       line-height: 1.1;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 1rem;
@@ -287,34 +308,79 @@
 
     .section-text {
       color: #e5e7eb;
-      font-size: 1.06rem;
-      line-height: 1.9;
-    }
-
-    .about-copy {
-      max-width: 1020px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about-copy p {
-      color: #e5e7eb;
-      margin-bottom: 1.2rem;
       font-size: 1.05rem;
       line-height: 1.9;
     }
 
-    .credentials-grid {
+    .eyebrow-pill {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .45rem .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: #f3f4f6;
+      font-size: .84rem;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .about-copy {
+      max-width: 1040px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-lead {
+      max-width: 920px;
+      margin: 0 auto 2rem;
+      color: #e5e7eb;
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .credentials-grid,
+    .cards-grid,
+    .stack-grid,
+    .contact-grid,
+    .pricing-grid,
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.3rem;
-      margin-top: 2.5rem;
+      gap: 1.5rem;
+    }
+
+    .credentials-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .stack-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 1.5rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.08fr .92fr;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-bottom: 2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     }
 
     .credential-card,
     .info-card,
-    .rate-card,
     .policy-card,
+    .price-card,
     .contact-card {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -325,43 +391,54 @@
       box-shadow: var(--shadow);
     }
 
+    .price-card { background: var(--panel-strong); }
+
     .credential-card h3,
     .info-card h3,
-    .rate-card h3,
     .policy-card h3,
+    .price-card h3,
     .contact-card h3 {
       color: white;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       text-transform: uppercase;
-      margin-bottom: .9rem;
       letter-spacing: .8px;
+      margin-bottom: .95rem;
+      line-height: 1.35;
     }
 
     .credential-card ul,
-    .service-features,
-    .rate-card ul,
     .policy-card ul,
+    .price-card ul,
+    .service-features,
     .contact-list {
       list-style: none;
     }
 
     .credential-card li,
-    .rate-card li,
     .policy-card li,
-    .contact-list li {
+    .price-card li,
+    .contact-list li,
+    .service-features li {
       color: #e5e7eb;
-      padding: .55rem 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
       line-height: 1.7;
     }
 
+    .credential-card li,
+    .policy-card li,
+    .price-card li,
+    .contact-list li {
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
     .credential-card li:last-child,
-    .rate-card li:last-child,
     .policy-card li:last-child,
-    .contact-list li:last-child { border-bottom: none; }
+    .price-card li:last-child,
+    .contact-list li:last-child,
+    .service-features li:last-child { border-bottom: none; }
 
     .gallery {
-      padding: 40px 2rem 100px;
+      padding: 42px 2rem 100px;
     }
 
     .gallery-grid {
@@ -375,8 +452,8 @@
       break-inside: avoid;
       margin-bottom: 1rem;
       overflow: hidden;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.72);
+      border-radius: var(--radius-sm);
+      background: rgba(15,23,42,.72);
       box-shadow: 0 14px 32px rgba(0,0,0,.28);
     }
 
@@ -405,7 +482,7 @@
       z-index: 2;
       text-align: center;
       color: rgba(255,255,255,.14);
-      font-size: clamp(2.15rem, 7vw, 5.8rem);
+      font-size: clamp(2.1rem, 7vw, 5.7rem);
       font-weight: 900;
       line-height: .95;
       letter-spacing: .08em;
@@ -415,24 +492,24 @@
 
     .impact-text .accent { color: rgba(220,38,38,.25); }
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem;
+    .info-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.045) 100%);
+    }
+
+    .info-card .num {
+      color: #f87171;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: .9rem;
     }
 
     .info-card p,
     .contact-card p {
       color: #e5e7eb;
-      line-height: 1.8;
-    }
-
-    .info-card .num {
-      color: #f87171;
-      font-size: 2.9rem;
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: .85rem;
+      line-height: 1.82;
     }
 
     .services {
@@ -440,22 +517,16 @@
       color: white;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 1.5rem;
-    }
-
     .service-item {
       position: relative;
-      min-height: 560px;
+      min-height: 600px;
       border-radius: 16px;
       overflow: hidden;
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: flex-end;
-      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+      box-shadow: var(--shadow);
       isolation: isolate;
     }
 
@@ -463,8 +534,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.80) 100%);
       z-index: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.20) 28%, rgba(0,0,0,.84) 100%);
     }
 
     .service-overlay {
@@ -472,50 +543,46 @@
       z-index: 2;
       width: 100%;
       padding: 2rem;
-      background: linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,.22) 35%, rgba(17,24,39,.60) 100%);
+      background: linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,.18) 35%, rgba(17,24,39,.64) 100%);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
 
     .service-label {
-      color: #fca5a5;
+      color: var(--accent-soft);
       font-size: .78rem;
-      font-weight: 700;
       text-transform: uppercase;
+      font-weight: 700;
       letter-spacing: 2px;
       margin-bottom: .65rem;
     }
 
     .service-title {
-      color: #fff;
-      font-size: 1.55rem;
-      line-height: 1.15;
+      color: white;
+      font-size: 1.48rem;
+      line-height: 1.18;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: .9rem;
+      margin-bottom: .85rem;
     }
 
     .service-overlay > p {
       color: #f3f4f6;
-      line-height: 1.75;
+      line-height: 1.72;
       margin-bottom: 1rem;
     }
 
     .service-features li {
-      color: #f3f4f6;
-      padding: .4rem 0;
+      padding: .42rem 0;
       border-bottom: 1px solid rgba(255,255,255,.10);
       font-size: .96rem;
-      line-height: 1.6;
     }
-
-    .service-features li:last-child { border-bottom: none; }
 
     .pricing-section {
       position: relative;
       overflow: hidden;
       background: #000;
-      min-height: 1200px;
+      min-height: 1280px;
     }
 
     .pricing-slideshow {
@@ -540,7 +607,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.58) 50%, rgba(0,0,0,.76) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.60) 50%, rgba(0,0,0,.78) 100%);
     }
 
     .pricing-content {
@@ -552,64 +619,50 @@
       color: white;
     }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2.2rem;
+    .subsection-head {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 2rem;
     }
 
-    .price-card {
-      background: var(--panel-strong);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius);
-      padding: 2rem;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: var(--shadow);
-    }
-
-    .price-card h3 {
-      color: #fff;
-      font-size: 1.15rem;
+    .subsection-head h3 {
+      color: white;
+      font-size: 1.8rem;
       text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: .7rem;
       letter-spacing: 1px;
-      margin-bottom: .8rem;
+    }
+
+    .subsection-head p {
+      color: #e5e7eb;
+      line-height: 1.8;
     }
 
     .price-value {
-      color: #fff;
-      font-size: 2.9rem;
+      color: white;
+      font-size: 2.8rem;
       font-weight: 900;
-      margin-bottom: .9rem;
+      margin-bottom: .8rem;
       text-shadow: 0 4px 12px rgba(0,0,0,.25);
     }
 
     .price-sub {
       color: #e5e7eb;
-      margin-bottom: 1rem;
       line-height: 1.75;
+      margin-bottom: 1rem;
     }
 
-    .price-card ul {
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    .price-card li {
+    .note-strip {
+      margin-top: 2rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      text-align: center;
       color: #f3f4f6;
-      padding: .72rem 0;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      line-height: 1.65;
-    }
-
-    .price-card li:last-child { border-bottom: none; }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      line-height: 1.75;
+      box-shadow: var(--shadow);
     }
 
     .contact-section {
@@ -617,14 +670,8 @@
       color: white;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 1.5rem;
-    }
-
     .contact-card a { color: #e5e7eb; }
-    .contact-card a:hover { color: #fca5a5; }
+    .contact-card a:hover { color: var(--accent-soft); }
 
     footer {
       background: #090d15;
@@ -635,7 +682,7 @@
     }
 
     @media (max-width: 992px) {
-      .hero h1 { font-size: 3.5rem; }
+      .hero h1 { font-size: 3.4rem; }
       .contact-grid { grid-template-columns: 1fr; }
     }
 
@@ -645,18 +692,20 @@
       .logo img { height: 68px; }
       .nav-links { gap: 1rem; justify-content: center; }
       .hero-content { padding-top: 10rem; }
-      .hero h1 { font-size: 2.6rem; }
+      .hero h1 { font-size: 2.5rem; }
       .section-title { font-size: 2rem; }
+      .subsection-head h3 { font-size: 1.5rem; }
       .pricing-content, .section { padding-left: 1rem; padding-right: 1rem; }
+      .hero-meta-wrap { gap: .55rem; }
     }
 
     @media (max-width: 560px) {
       .cta-buttons { flex-direction: column; width: 100%; }
-      .cta-button { width: 100%; }
-      .hero-link-row { flex-direction: column; gap: .6rem; }
+      .cta-button { width: 100%; min-width: unset; }
+      .hero-link-row { flex-direction: column; gap: .55rem; }
       .section-title { font-size: 1.7rem; }
-      .price-value { font-size: 2.4rem; }
-      .price-card, .info-card, .policy-card, .contact-card, .credential-card { padding: 1.35rem; }
+      .price-value { font-size: 2.35rem; }
+      .credential-card, .info-card, .policy-card, .price-card, .contact-card { padding: 1.3rem; }
     }
   </style>
 </head>
@@ -687,17 +736,29 @@
 
     <div class="hero-content">
       <div class="hero-kicker">BFP Collective</div>
-      <div class="hero-meta">Basketball Training • Performance Coaching • Personal Training</div>
-      <div class="hero-meta">Coconut Creek, FL | Broward County</div>
-      <div class="hero-meta">In-Person & Online Coaching Available</div>
+
+      <div class="hero-meta-wrap">
+        <span class="hero-meta">Basketball Training</span>
+        <span class="hero-meta">Performance Coaching</span>
+        <span class="hero-meta">Personal Training</span>
+      </div>
+
+      <div class="hero-meta-wrap">
+        <span class="hero-meta">Coconut Creek, FL</span>
+        <span class="hero-meta">Broward County</span>
+        <span class="hero-meta">In-Person & Online Coaching Available</span>
+      </div>
+
       <h1>Train With Intent. Track Progress. Adjust When Needed.</h1>
       <p>
         No random workouts. No guesswork. Just structured training built for real progress.
       </p>
+
       <div class="cta-buttons">
         <a href="#contact" class="cta-button">Book a Session</a>
         <a href="#membership" class="cta-button secondary">Apply for Membership</a>
       </div>
+
       <div class="hero-link-row">
         <a href="#contact">👉 Book a Session</a>
         <a href="#membership">👉 Apply for Membership</a>
@@ -730,10 +791,11 @@
         <p class="section-text">
           BFP Collective (Bernardi Fitness & Performance LLC) is a structured coaching system for basketball players, athletes, and individuals who want clear direction, progression, and accountability.
         </p>
+        <span class="eyebrow-pill">Built by Brian Bernardi</span>
       </div>
 
-      <p>
-        Built by Brian Bernardi:
+      <p class="about-lead">
+        This page keeps the original visual style but now presents the full offer more clearly, with Brian’s background, services, memberships, standard rates, policies, and contact information organized in a cleaner way.
       </p>
 
       <div class="credentials-grid">
@@ -750,11 +812,11 @@
           <h3>College Coaching Background</h3>
           <ul>
             <li>Southern Methodist University under Hall of Fame Coach Larry Brown</li>
-            <li>Worked under former NBA point guard Eric Snow</li>
-            <li>Worked under former NBA player George Lynch</li>
+            <li>Former NBA point guard Eric Snow</li>
+            <li>Former NBA player George Lynch</li>
             <li>Hofstra University under Coach Joe Mihalich</li>
-            <li>Hofstra University under NBA Champion Coach Speedy Claxton</li>
-            <li>Worked with current University of Notre Dame assistant coach Mike Farrelly</li>
+            <li>NBA Champion Coach Speedy Claxton</li>
+            <li>Current University of Notre Dame assistant coach Mike Farrelly</li>
           </ul>
         </div>
 
@@ -783,7 +845,7 @@
       <div class="section-label">Training Environment</div>
       <h2 class="section-title" style="color:white;">Structured Training. Real Work. Real Progress.</h2>
       <p class="section-text">
-        Training with purpose means showing up with a plan, tracking your work, and making the right adjustments over time.
+        A training environment built around structure, progression, accountability, and doing what is needed to keep improving.
       </p>
     </div>
 
@@ -851,7 +913,7 @@
         <div class="section-label">Services</div>
         <h2 class="section-title">Training Designed Around Real Progress</h2>
         <p class="section-text">
-          Every service below reflects the exact coaching areas and offers requested for the BFP Collective page.
+          Basketball training, athletic performance, adult fitness/HYROX, and online coaching — organized clearly while keeping the current look and feel of the page.
         </p>
       </div>
 
@@ -860,7 +922,7 @@
           <div class="service-overlay">
             <div class="service-label">Basketball Training (All Levels)</div>
             <h3 class="service-title">For Athletes Serious About Improving Skill, Performance, And Understanding The Game</h3>
-            <p>Built for athletes and teams who want basketball development with structure and purpose.</p>
+            <p>Built for players and coaches who want basketball development with structure and purpose.</p>
             <ul class="service-features">
               <li>Youth & teen development</li>
               <li>High school athletes</li>
@@ -879,7 +941,7 @@
           <div class="service-overlay">
             <div class="service-label">Athletic Performance Training</div>
             <h3 class="service-title">For Athletes Who Want To Improve Strength, Speed, And Overall Performance</h3>
-            <p>Performance work for athletes who need more than random workouts.</p>
+            <p>Performance work for athletes who need progressive training, not random sessions.</p>
             <ul class="service-features">
               <li>Strength & conditioning</li>
               <li>Speed, agility, & coordination</li>
@@ -908,12 +970,12 @@
           <div class="service-overlay">
             <div class="service-label">Online Coaching (Basketball, General Fitness & HYROX)</div>
             <h3 class="service-title">Structured Remote Coaching System</h3>
-            <p>Remote coaching with review, communication, and adjustments built into the process.</p>
+            <p>Remote coaching with review, communication, updates, and adjustments built into the process.</p>
             <ul class="service-features">
               <li>Personalized training plan</li>
               <li>Weekly updates + adjustments</li>
-              <li>Messaging support</li>
               <li>Video/form review</li>
+              <li>Messaging support</li>
               <li>Progress tracking</li>
             </ul>
           </div>
@@ -952,7 +1014,7 @@
         <div class="section-label">Membership Training Options</div>
         <h2 class="section-title">Memberships, Non-Member Training & Full Details</h2>
         <p class="section-text">
-          Everything below is included so the page reflects the requested content fully, not partially.
+          This section now includes the memberships, early access/founding clients, standard rates, session lengths, booking policy, and location/contact details in a cleaner structure.
         </p>
       </div>
 
@@ -974,7 +1036,7 @@
         <div class="price-card">
           <h3>Performance Membership</h3>
           <div class="price-value">$275 / month</div>
-          <div class="price-sub">Consistent structure for athletes who want progress built into the month.</div>
+          <div class="price-sub">For athletes who want structure, consistency, and built-in accountability.</div>
           <ul>
             <li>Up to 8 sessions/month (2 per week, max 3 in rescheduling circumstances)</li>
             <li>Priority scheduling and reserved weekly time slot</li>
@@ -1007,11 +1069,10 @@
         </div>
       </div>
 
-      <div class="section-intro" style="margin-top: 3rem; margin-bottom: 2rem;">
-        <div class="section-label">Non-Member Training (Standard Rates)</div>
-        <h2 class="section-title">Standard Rates</h2>
-        <p class="section-text">
-          Flexible training options for non-members, including basketball, team sessions, adult personal/HYROX, and online coaching.
+      <div class="subsection-head" style="margin-top: 3.2rem;">
+        <h3>Non-Member Training (Standard Rates)</h3>
+        <p>
+          Flexible pricing for basketball sessions, groups, teams, adult personal/HYROX training, and online coaching.
         </p>
       </div>
 
@@ -1038,7 +1099,7 @@
 
         <div class="price-card">
           <h3>Team Training</h3>
-          <div class="price-value">From $150</div>
+          <div class="price-value">Starting at $150</div>
           <div class="price-sub">Minimum per session (90–120 minutes)</div>
           <ul>
             <li>Final price may vary based on team size, travel distance and time</li>
@@ -1059,23 +1120,27 @@
         <div class="price-card">
           <h3>Online Coaching</h3>
           <div class="price-value">$150 / month</div>
-          <div class="price-sub">Basketball, General Fitness & HYROX coaching delivered remotely.</div>
+          <div class="price-sub">Basketball, general fitness, and HYROX programming delivered remotely.</div>
           <ul>
-            <li>Personalized programming</li>
-            <li>Weekly updates and adjustments</li>
-            <li>Video/form review and messaging support</li>
+            <li>Personalized training plan</li>
+            <li>Weekly updates + adjustments</li>
+            <li>Video/form review</li>
+            <li>Messaging support</li>
+            <li>Progress tracking</li>
           </ul>
         </div>
       </div>
 
-      <div class="section-intro" style="margin-top: 3rem; margin-bottom: 2rem;">
-        <div class="section-label">Booking & Policy</div>
-        <h2 class="section-title">Scheduling, Credits & Attendance</h2>
+      <div class="subsection-head" style="margin-top: 3.2rem;">
+        <h3>Booking & Policy</h3>
+        <p>
+          Clear cancellation, attendance, guest, and travel details so expectations are simple from the beginning.
+        </p>
       </div>
 
       <div class="stack-grid">
         <div class="policy-card">
-          <h3>Booking Policy</h3>
+          <h3>Scheduling, Credits & Attendance</h3>
           <ul>
             <li>Sessions cancelled with at least 24-hour notice will receive a session credit for future use</li>
             <li>Late cancellations (within 24 hours) and no-shows will result in the session being used</li>
@@ -1096,6 +1161,10 @@
           </ul>
         </div>
       </div>
+
+      <div class="note-strip">
+        Email for more information and scheduling.
+      </div>
     </div>
   </section>
 
@@ -1105,7 +1174,7 @@
         <div class="section-label">Get Started</div>
         <h2 class="section-title">Ready To Train With Structure And Purpose?</h2>
         <p class="section-text">
-          👉 Book a Session &nbsp;&nbsp; 👉 Apply for Membership &nbsp;&nbsp; 👉 Contact for Team Training
+          Book a session, apply for membership, or contact BFP Collective for team training.
         </p>
       </div>
 
@@ -1122,14 +1191,14 @@
         </div>
 
         <div class="contact-card">
-          <h3>What To Send</h3>
+          <h3>Get Started</h3>
           <p>
-            Reach out for 1-on-1 training, group sessions, team training, adult fitness/HYROX, or online coaching. Include your goals, current level, preferred schedule, and whether you are booking a session or applying for membership.
+            Reach out for 1-on-1 training, group sessions, team training, adult fitness/HYROX, or online coaching. Share your goals, current level, preferred schedule, and whether you want to book a session or apply for membership.
           </p>
           <ul class="contact-list" style="margin-top:1rem;">
-            <li>Book a Session</li>
-            <li>Apply for Membership</li>
-            <li>Contact for Team Training</li>
+            <li>👉 Book a Session</li>
+            <li>👉 Apply for Membership</li>
+            <li>👉 Contact for Team Training</li>
             <li>Email for more information and scheduling</li>
           </ul>
         </div>
