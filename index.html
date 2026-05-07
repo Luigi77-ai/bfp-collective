@@ -25,6 +25,7 @@
       --radius: 18px;
       --radius-sm: 14px;
       --max: 1240px;
+      --whatsapp: #25D366;
     }
 
     html { scroll-behavior: smooth; }
@@ -34,6 +35,10 @@
       background: #fff;
       color: #111827;
       line-height: 1.6;
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     img, video { max-width: 100%; display: block; }
@@ -233,6 +238,7 @@
       letter-spacing: 1px;
       transition: all .3s ease;
       box-shadow: 0 10px 25px rgba(220,38,38,.24);
+      cursor: pointer;
     }
 
     .cta-button:hover {
@@ -748,6 +754,19 @@
       box-shadow: var(--shadow);
     }
 
+    .inline-mail-link,
+    .action-link {
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color .25s ease, transform .25s ease;
+    }
+
+    .inline-mail-link:hover,
+    .action-link:hover {
+      color: var(--accent-soft);
+    }
+
     .contact-section {
       background: linear-gradient(180deg, #111827 0%, #0b1020 100%);
       color: white;
@@ -755,6 +774,220 @@
 
     .contact-card a { color: #e5e7eb; }
     .contact-card a:hover { color: var(--accent-soft); }
+
+    .contact-action-list {
+      list-style: none;
+      margin-top: 1rem;
+      display: grid;
+      gap: .8rem;
+    }
+
+    .contact-action-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      text-align: left;
+      padding: .95rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-weight: 700;
+      font-size: .98rem;
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+
+    .contact-action-button:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.2);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1200;
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      background: var(--whatsapp);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 34px rgba(37,211,102,.35);
+      border: 3px solid rgba(255,255,255,.88);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 18px 38px rgba(37,211,102,.42);
+    }
+
+    .whatsapp-float svg {
+      width: 31px;
+      height: 31px;
+      fill: currentColor;
+    }
+
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(2,6,14,.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .contact-modal.active {
+      display: flex;
+    }
+
+    .modal-panel {
+      width: min(760px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(17,24,39,.96) 0%, rgba(11,18,32,.98) 100%);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 24px 60px rgba(0,0,0,.42);
+      color: #fff;
+      padding: 1.4rem;
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .modal-title h3 {
+      font-size: 1.45rem;
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+
+    .modal-title p {
+      color: #d1d5db;
+      line-height: 1.7;
+    }
+
+    .modal-close {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: .9rem;
+      color: #f3f4f6;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      padding: .95rem 1rem;
+      font: inherit;
+      outline: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .field textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 1.15rem;
+    }
+
+    .modal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-width: 170px;
+      padding: .95rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      cursor: pointer;
+      transition: transform .25s ease, opacity .25s ease, background .25s ease;
+    }
+
+    .modal-btn:hover { transform: translateY(-2px); }
+
+    .modal-btn.primary {
+      background: var(--primary-red);
+      color: #fff;
+    }
+
+    .modal-btn.secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,.2);
+    }
+
+    .modal-btn.whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+    }
+
+    .helper-note {
+      margin-top: .8rem;
+      color: #9ca3af;
+      font-size: .92rem;
+      line-height: 1.7;
+    }
 
     footer {
       background: #090d15;
@@ -773,6 +1006,7 @@
       .hero h1 { font-size: 3.4rem; }
       .contact-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
+      .modal-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -787,6 +1021,12 @@
       .pricing-content, .section { padding-left: 1rem; padding-right: 1rem; }
       .credentials-grid,
       .cards-grid { grid-template-columns: 1fr; }
+      .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        right: 16px;
+        bottom: 16px;
+      }
     }
 
     @media (max-width: 560px) {
@@ -796,6 +1036,8 @@
       .price-value { font-size: 2.35rem; }
       .credential-card, .info-card, .policy-card, .price-card, .contact-card { padding: 1.3rem; }
       .hero-marquee-track span { font-size: .88rem; }
+      .modal-actions { flex-direction: column; }
+      .modal-btn { width: 100%; }
     }
   </style>
 </head>
@@ -851,8 +1093,8 @@
       </p>
 
       <div class="cta-buttons">
-        <a href="#contact" class="cta-button">Book a Session</a>
-        <a href="#membership" class="cta-button secondary">Apply for Membership</a>
+        <button type="button" class="cta-button" data-open-contact="book-session">Book a Session</button>
+        <button type="button" class="cta-button secondary" data-open-contact="membership">Apply for Membership</button>
       </div>
     </div>
   </section>
@@ -1194,7 +1436,11 @@
           <div class="price-sub">Minimum per session (90–120 minutes)</div>
           <ul>
             <li>Final price may vary based on team size, travel distance and time</li>
-            <li>Email for more information and scheduling</li>
+            <li>
+              <button type="button" class="action-link" data-open-contact="general-email">
+                Email for more information and scheduling.
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -1254,7 +1500,9 @@
       </div>
 
       <div class="note-strip">
-        Email for more information and scheduling.
+        <button type="button" class="inline-mail-link" data-open-contact="general-email">
+          Email for more information and scheduling.
+        </button>
       </div>
     </div>
   </section>
@@ -1286,16 +1534,87 @@
           <p>
             Reach out for 1-on-1 training, group sessions, team training, adult fitness/HYROX, or online coaching. Share your goals, current level, preferred schedule, and whether you want to book a session or apply for membership.
           </p>
-          <ul class="contact-list" style="margin-top:1rem;">
-            <li>👉 Book a Session</li>
-            <li>👉 Apply for Membership</li>
-            <li>👉 Contact for Team Training</li>
-            <li>Email for more information and scheduling</li>
-          </ul>
+
+          <div class="contact-action-list">
+            <button type="button" class="contact-action-button" data-open-contact="book-session">👉 Book a Session</button>
+            <button type="button" class="contact-action-button" data-open-contact="membership">👉 Apply for Membership</button>
+            <button type="button" class="contact-action-button" data-open-contact="team-training">👉 Contact for Team Training</button>
+            <button type="button" class="contact-action-button" data-open-contact="general-email">Email for more information and scheduling</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/17188875723?text=Hi%20BFP%20Collective%2C%20I%27m%20interested%20in%20training.%20Can%20you%20share%20more%20information%3F"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+    title="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.29c-.28-.14-1.65-.82-1.91-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.25-1.37-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.47-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-1 1-1 2.43s1.02 2.82 1.16 3.01c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.31.19 1.8.12.55-.08 1.65-.67 1.89-1.31.23-.64.23-1.19.16-1.31-.07-.12-.26-.19-.54-.33Z"/>
+      <path d="M16.04 3.2c-6.98 0-12.65 5.66-12.65 12.64 0 2.23.58 4.41 1.69 6.33L3.2 28.8l6.82-1.79a12.59 12.59 0 0 0 6.01 1.53h.01c6.97 0 12.64-5.67 12.64-12.65 0-3.38-1.31-6.56-3.7-8.95a12.54 12.54 0 0 0-8.94-3.74Zm0 23.2h-.01a10.48 10.48 0 0 1-5.34-1.46l-.38-.23-4.05 1.06 1.08-3.95-.25-.41a10.47 10.47 0 0 1-1.61-5.57c0-5.79 4.71-10.5 10.51-10.5 2.8 0 5.43 1.09 7.41 3.08a10.4 10.4 0 0 1 3.08 7.42c0 5.8-4.71 10.51-10.44 10.56Z"/>
+    </svg>
+  </a>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top">
+        <div class="modal-title">
+          <h3 id="modalTitle">Contact BFP Collective</h3>
+          <p id="modalSubtitle">Complete the form and choose how you want to contact the team.</p>
+        </div>
+        <button type="button" class="modal-close" id="closeModal" aria-label="Close contact form">×</button>
+      </div>
+
+      <form id="contactForm">
+        <div class="modal-grid">
+          <div class="field">
+            <label for="leadName">Full Name</label>
+            <input type="text" id="leadName" name="leadName" placeholder="Your name">
+          </div>
+
+          <div class="field">
+            <label for="leadEmail">Email</label>
+            <input type="email" id="leadEmail" name="leadEmail" placeholder="you@example.com">
+          </div>
+
+          <div class="field">
+            <label for="leadPhone">Phone Number</label>
+            <input type="tel" id="leadPhone" name="leadPhone" placeholder="Your phone number">
+          </div>
+
+          <div class="field">
+            <label for="leadAddress">City / Address</label>
+            <input type="text" id="leadAddress" name="leadAddress" placeholder="City, address, or area">
+          </div>
+
+          <div class="field full">
+            <label for="leadInterest">Interest</label>
+            <input type="text" id="leadInterest" name="leadInterest" placeholder="Selected option">
+          </div>
+
+          <div class="field full">
+            <label for="leadMessage">Message</label>
+            <textarea id="leadMessage" name="leadMessage" placeholder="Your message"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="modal-btn primary">Send Email</button>
+          <button type="button" class="modal-btn whatsapp" id="whatsAppSend">WhatsApp</button>
+          <a class="modal-btn secondary" id="callNowBtn" href="tel:17188875723">Call Now</a>
+        </div>
+
+        <p class="helper-note">
+          Book a Session remains pending for the final appointment link, but this modal already lets the client contact BFP by email, WhatsApp, or phone with a prefilled template.
+        </p>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2026 BFP Collective. All rights reserved.</p>
@@ -1311,6 +1630,195 @@
         slides[currentSlide].classList.add('active');
       }, 4500);
     }
+
+    const contactConfigs = {
+      "book-session": {
+        title: "Book a Session",
+        subtitle: "A booking link is still pending, so the client can contact BFP directly from here.",
+        interest: "Book a Session",
+        subject: "Book a Session Inquiry - BFP Collective",
+        message:
+`Hi Brian,
+
+I’m interested in booking a session with BFP Collective.
+
+My goals:
+My current level:
+Preferred training type:
+Preferred days/times:
+Preferred location:
+
+Name:
+Email:
+Phone:
+Address/Area:
+
+Thank you.`
+      },
+      "membership": {
+        title: "Apply for Membership",
+        subtitle: "Pre-filled message for membership interest.",
+        interest: "Apply for Membership",
+        subject: "Membership Inquiry - BFP Collective",
+        message:
+`Hi Brian,
+
+I’m interested in applying for a BFP Collective membership.
+
+Membership I’m interested in:
+My goals:
+My current level:
+Preferred schedule:
+Questions I have:
+
+Name:
+Email:
+Phone:
+Address/Area:
+
+Thank you.`
+      },
+      "team-training": {
+        title: "Contact for Team Training",
+        subtitle: "Pre-filled message for team training inquiries.",
+        interest: "Contact for Team Training",
+        subject: "Team Training Inquiry - BFP Collective",
+        message:
+`Hi Brian,
+
+I’m interested in team training with BFP Collective.
+
+Team / organization:
+Number of athletes:
+Age group / level:
+Preferred location:
+Preferred dates or schedule:
+Anything else we should know:
+
+Name:
+Email:
+Phone:
+Address/Area:
+
+Thank you.`
+      },
+      "general-email": {
+        title: "Email for More Information",
+        subtitle: "General inquiry template for questions and scheduling.",
+        interest: "General Inquiry",
+        subject: "General Inquiry - BFP Collective",
+        message:
+`Hi Brian,
+
+I’d like more information about training and scheduling with BFP Collective.
+
+I’m interested in:
+My goals:
+Preferred training format:
+Preferred schedule:
+Questions:
+
+Name:
+Email:
+Phone:
+Address/Area:
+
+Thank you.`
+      }
+    };
+
+    const businessEmail = "Brian@bfpcollective.com";
+    const businessPhone = "17188875723";
+
+    const modal = document.getElementById("contactModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSubtitle = document.getElementById("modalSubtitle");
+    const contactForm = document.getElementById("contactForm");
+    const leadName = document.getElementById("leadName");
+    const leadEmail = document.getElementById("leadEmail");
+    const leadPhone = document.getElementById("leadPhone");
+    const leadAddress = document.getElementById("leadAddress");
+    const leadInterest = document.getElementById("leadInterest");
+    const leadMessage = document.getElementById("leadMessage");
+    const whatsAppSend = document.getElementById("whatsAppSend");
+
+    let activeConfig = contactConfigs["general-email"];
+
+    function openContactModal(type) {
+      activeConfig = contactConfigs[type] || contactConfigs["general-email"];
+      modalTitle.textContent = activeConfig.title;
+      modalSubtitle.textContent = activeConfig.subtitle;
+      leadInterest.value = activeConfig.interest;
+      leadMessage.value = activeConfig.message;
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      setTimeout(() => leadName.focus(), 30);
+    }
+
+    function closeContactModal() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    function buildFinalMessage() {
+      const name = leadName.value.trim();
+      const email = leadEmail.value.trim();
+      const phone = leadPhone.value.trim();
+      const address = leadAddress.value.trim();
+      const interest = leadInterest.value.trim();
+      let message = leadMessage.value.trim();
+
+      const extras = [
+        name ? `Name: ${name}` : "",
+        email ? `Email: ${email}` : "",
+        phone ? `Phone: ${phone}` : "",
+        address ? `Address/Area: ${address}` : "",
+        interest ? `Interest: ${interest}` : ""
+      ].filter(Boolean).join("\n");
+
+      if (extras) {
+        if (message) {
+          message += `\n\n${extras}`;
+        } else {
+          message = extras;
+        }
+      }
+
+      return message;
+    }
+
+    document.querySelectorAll("[data-open-contact]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openContactModal(btn.getAttribute("data-open-contact"));
+      });
+    });
+
+    closeModalBtn.addEventListener("click", closeContactModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeContactModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeContactModal();
+      }
+    });
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const subject = encodeURIComponent(activeConfig.subject);
+      const body = encodeURIComponent(buildFinalMessage());
+      window.location.href = `mailto:${businessEmail}?subject=${subject}&body=${body}`;
+    });
+
+    whatsAppSend.addEventListener("click", function () {
+      const text = encodeURIComponent(buildFinalMessage());
+      window.open(`https://wa.me/${businessPhone}?text=${text}`, "_blank", "noopener,noreferrer");
+    });
   </script>
 </body>
 </html>
