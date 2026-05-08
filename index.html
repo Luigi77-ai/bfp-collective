@@ -130,7 +130,7 @@
     }
 
     .hero-kicker {
-      color: #273b92;
+      color: #ffffff;
       font-size: .95rem;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -176,7 +176,6 @@
     .hero h1 {
       position: relative;
       display: inline-block;
-      color: #ffffff;
       font-size: 4.8rem;
       line-height: 1.02;
       font-weight: 900;
@@ -184,15 +183,37 @@
       letter-spacing: 1px;
       margin-bottom: 1rem;
       text-shadow: 0 5px 24px rgba(0,0,0,.45);
+    }
+
+    .hero h1 .hero-blue {
       background: linear-gradient(
         110deg,
-        #273b92 0%,
-        #273b92 38%,
-        #273b92 44%,
-        rgba(39,59,146,.45) 50%,
-        #273b92 56%,
-        #273b92 62%,
-        #273b92 100%
+        #4a67e6 0%,
+        #5c78f0 18%,
+        #8fa2ff 32%,
+        #c6d2ff 50%,
+        #8fa2ff 68%,
+        #5c78f0 82%,
+        #4a67e6 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShineLetters 4.8s ease-in-out infinite;
+    }
+
+    .hero h1 .hero-white {
+      background: linear-gradient(
+        110deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,.98) 44%,
+        rgba(255,255,255,.45) 50%,
+        rgba(255,255,255,.98) 56%,
+        rgba(255,255,255,1) 62%,
+        rgba(255,255,255,1) 100%
       );
       background-size: 220% auto;
       background-position: 140% center;
@@ -316,7 +337,7 @@
     }
 
     .section-label {
-      color: #273b92;
+      color: #ffffff;
       font-size: .9rem;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -343,9 +364,9 @@
       margin-top: .5rem;
       padding: .45rem .85rem;
       border-radius: 999px;
-      border: 1px solid rgba(39,59,146,.45);
+      border: 1px solid rgba(39,59,146,.85);
       background: rgba(39,59,146,.12);
-      color: #273b92;
+      color: #ffffff;
       font-size: .84rem;
       letter-spacing: .8px;
       text-transform: uppercase;
@@ -459,8 +480,8 @@
     }
 
     .non-member-grid .price-card:nth-child(5) {
-      grid-column: 3 / 4;
-      justify-self: start;
+      grid-column: 2 / 3;
+      justify-self: center;
     }
 
     .schedule-hover-cta {
@@ -1174,7 +1195,10 @@
         </div>
       </div>
 
-      <h1>Train With Intent. Track Progress. Adjust When Needed.</h1>
+      <h1>
+        <span class="hero-blue">Train With Intent.</span>
+        <span class="hero-white"> Track Progress. Adjust When Needed.</span>
+      </h1>
 
       <p>
         No random workouts. No guesswork. Just structured training built for real progress.
@@ -1274,7 +1298,7 @@
       <div class="gallery-item"><img src="./Photo Mar 27 2026, 11 22 34 AM.jpg" alt="Athlete training on rowing machine" loading="lazy"></div>
       <div class="gallery-item"><img src="./Photo Apr 09 2026, 9 41 20 PM (9).jpg" alt="Basketball skill development session" loading="lazy"></div>
       <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 11 54 AM.jpg" alt="Athletic performance training session" loading="lazy"></div>
-      <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 12 39 AM.jpg" alt="<span style='color:#273b92;'>BFP</span> training environment" loading="lazy"></div>
+      <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 12 39 AM.jpg" alt="BFP training environment" loading="lazy"></div>
       <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 32 40 AM.jpg" alt="Hybrid conditioning and performance training" loading="lazy"></div>
       <div class="gallery-item"><img src="./Photo Apr 09 2026, 9 41 20 PM (10).jpg" alt="Basketball athlete in competition setting" loading="lazy"></div>
     </div>
