@@ -420,6 +420,48 @@
       gap: 1.5rem;
     }
 
+    .coaching-background {
+      margin-top: 2rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem 2rem;
+    }
+
+    .coaching-background h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
+    }
+
+    .coaching-background ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .coaching-background ul li {
+      padding: .45rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      color: var(--text);
+      font-size: .97rem;
+    }
+
+    .coaching-background ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-red);
+    }
+
     .credentials-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
       margin-top: 2rem;
@@ -1205,8 +1247,8 @@
       </p>
 
       <div class="cta-buttons">
-        <button type="button" class="cta-button" data-open-contact="book-session">Book a Session</button>
-        <a href="#membership" class="cta-button secondary">Apply for Membership</a>
+        <a href="#pricing-faq" class="cta-button">View Training &amp; Pricing</a>
+        <button type="button" class="cta-button secondary" data-open-contact="book-session">Book a Session</button>
       </div>
     </div>
   </section>
@@ -1240,47 +1282,16 @@
       </div>
 
       <p class="about-lead">
-        This page keeps the original visual style but now presents the full offer more clearly, with Brian’s background, services, memberships, standard rates, policies, and contact information organized in a cleaner way.
-      </p>
+        Brian brings experience from Division 1 college basketball, coaching at the college level under Hall of Fame and NBA coaches, professional play in Europe, and performance coaching — all applied to help athletes and individuals train with structure, purpose, and accountability.</p>
 
-      <div class="credentials-grid">
-        <div class="credential-card">
-          <h3>Basketball Background</h3>
-          <ul>
-            <li>5 years of Division 1 basketball experience</li>
-            <li>1,300+ career college points</li>
-            <li>Top 5 all-time 3PT shooter at Hofstra University (in only 3 years)</li>
-          </ul>
-        </div>
-
-        <div class="credential-card">
-          <h3>College Coaching Background</h3>
-          <ul>
-            <li>Southern Methodist University under Hall of Fame Coach Larry Brown</li>
-            <li>Former NBA point guard Eric Snow</li>
-            <li>Former NBA player George Lynch</li>
-            <li>Hofstra University under Coach Joe Mihalich</li>
-            <li>NBA Champion Coach Speedy Claxton</li>
-            <li>Current University of Notre Dame assistant coach Mike Farrelly</li>
-          </ul>
-        </div>
-
-        <div class="credential-card">
-          <h3>Professional & International Experience</h3>
-          <ul>
-            <li>Professional basketball experience in the top leagues of the Czech Republic and Georgia</li>
-            <li>Amateur basketball experience in Germany, Netherlands, and Belgium</li>
-            <li>Experience under University of San Francisco Head Coach Jay Duncan</li>
-          </ul>
-        </div>
-
-        <div class="credential-card">
-          <h3>Performance Coaching</h3>
-          <ul>
-            <li>HYROX Pro Individual time: 1:14:46</li>
-            <li>Coaching experience with youth/teens, high school, college, and adult athletes</li>
-          </ul>
-        </div>
+      <div class="coaching-background">
+        <h3>Coaching Background</h3>
+        <ul>
+          <li>Youth, high school, college, professional and adult athlete coaching experience</li>
+          <li>Basketball Coach at the high school and youth league levels</li>
+          <li>Basketball individual skill development and group training specialization</li>
+          <li>Strength, conditioning, and athletic development focus</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1529,11 +1540,15 @@
         <div class="price-card">
           <div class="price-card-inner">
             <h3>1-on-1 Basketball Training</h3>
-            <div class="price-value">$75</div>
-            <div class="price-sub">Per session — Single Session</div>
+            <div class="price-value">$65</div>
+            <div class="price-sub">Per session — 60 minutes</div>
+            <div class="price-sub" style="margin-top:.4rem">Extended 90-min session — <strong>$90</strong></div>
+            <div class="price-note" style="margin-top:.5rem;font-size:.82rem;opacity:.75">All packages expire 60 days from purchase.<br>Exceptions for injury or personal reasons.</div>
             <ul>
-              <li>5 sessions — $350</li>
-              <li>10 sessions — $650</li>
+              <li>4 sessions — $225</li>
+              <li>8 sessions — $425</li>
+              <li>12 sessions — $625</li>
+              <li>20 sessions — $1,000</li>
             </ul>
           </div>
           <button type="button" class="cta-button schedule-hover-cta" data-open-contact="book-session">Book a Session</button>
